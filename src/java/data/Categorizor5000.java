@@ -111,7 +111,6 @@ static ArrayList<Spending> arr;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
-        int length = (arr.size() / 4);
         Spending description;
         String str;
         //String str = Integer.toString(arr.size());
@@ -124,6 +123,7 @@ static ArrayList<Spending> arr;
             descriptionTextArea.append(str + newline);
             
         }
+        descriptionTextArea.append(arr.size() + newline);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
