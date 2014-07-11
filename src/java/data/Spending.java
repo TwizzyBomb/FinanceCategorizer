@@ -20,14 +20,10 @@ public class Spending {
     public Spending(String date, String description, String amount, String balance){
     setAll(date, description, amount, balance);
     
-    //this.date = date;
-    System.out.println("from spending object, date = " + date);
-    //this.description = description;
-    System.out.println("from spending object, description = " + description);
-    //this.amount = amount;
-    System.out.println("from spending object, amount = " + amount);
-    //this.balance = balance;
-    System.out.println("from spending object, balance = " + balance);
+    //System.out.println("from spending object, date = " + date);
+    //System.out.println("from spending object, description = " + description);
+    //System.out.println("from spending object, amount = " + amount);
+    //System.out.println("from spending object, balance = " + balance);
     
     }
     

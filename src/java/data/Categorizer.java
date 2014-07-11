@@ -24,7 +24,7 @@ public class Categorizer {
     static String[] tempArray = new String[5];
     
     
-    public static Object RecentSpending() throws FileNotFoundException, IOException {
+    public ArrayList<Spending> RecentSpending() throws FileNotFoundException, IOException {
     
         //Java's way of reading files
         FileReader fr = new FileReader(tempFilePath);
@@ -50,12 +50,14 @@ public class Categorizer {
                             + ", Token : " + value);//value
                             //sets value to temp array to properly populate object
                             tempArray[tokenNumber] = value;
-                            expenses.add( new Spending(tempArray[1],tempArray[2],tempArray[3],tempArray[4]) );
+                            
             }
+            //set Spending object
+            expenses.add( new Spending(tempArray[1],tempArray[2],tempArray[3],tempArray[4]) );
             //reset token number
             tokenNumber = 0;
         }
-        System.out.print("Expenses: " + expenses.get(7).getDescription());
+        System.out.println("Expenses: " + expenses.get(7).getDescription());
         return expenses;
         //perhaps this could return as a key value pair list? of descriptions and amounts
     }
@@ -63,9 +65,11 @@ public class Categorizer {
     public static void main(String[] args) {
     // TODO code application logic here
         try{
-        //ArrayList<Spending> expense = RecentSpending();
-        RecentSpending();
-        //System.out.println(RecentSpending());
+        Categorizer catClass = new Categorizer();
+        ArrayList<Spending> arr = new ArrayList();
+        arr = catClass.RecentSpending();
+        String something = arr.get(7).getDescription();
+        System.out.println("Somthing: " + something);
         }catch(IOException i){
             //do stuff
         }
