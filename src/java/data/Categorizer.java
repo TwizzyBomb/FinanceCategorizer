@@ -45,9 +45,9 @@ public class Categorizer {
                     tokenNumber++;
                     //use value to hold nextToken
                     String value = st.nextToken();
-                    System.out.println("Line # " + lineNumber
-                            + ", Token # " + tokenNumber
-                            + ", Token : " + value);//value
+                    //System.out.println("Line # " + lineNumber
+                    //        + ", Token # " + tokenNumber
+                    //        + ", Token : " + value);//value
                             //sets value to temp array to properly populate object
                             tempArray[tokenNumber] = value;
                             
@@ -65,33 +65,39 @@ public class Categorizer {
     String[] eventuallySortable  = {"DDA PURCHASE", "VISA DDA PUR", "DDA WITHDRAW", "CHECK", "DEBIT"};
     String[] immediatelySortable = {"IBASE", "Online Xfer from", "Online Xfer to", "MAINTENANCE FEE", 
                                     "Debit", "ST TRF TRANSFER TO SAVINGS ACCT", "NONTD ATM FEE", "DDA DEPOSIT"};
-    String[] testStrings = {"DDA PURCHASE 00704491   SY8 SONO ALE HOUSE 531      NORWALK       * CT",
-                            "VISA DDA PUR 443106     TASTE OF HIGH RIDGE         STAMFORD      * CT",
-                            "DDA PURCHASE 001        STOP   SHOP  637            STAMFORD      * CT",
-                            "VISA DDA PUR 423168     GULF OIL 91190990           FAIRFIELD     * CT"};
+    static String[] testStrings = { "DDA PURCHASE 00704491   SY8 SONO ALE HOUSE 531      NORWALK       * CT",
+                                    "VISA DDA PUR 443106     TASTE OF HIGH RIDGE         STAMFORD      * CT",
+                                    "DDA PURCHASE 001        STOP   SHOP  637            STAMFORD      * CT",
+                                    "VISA DDA PUR 423168     GULF OIL 91190990           FAIRFIELD     * CT",
+                                    "VISA DDA PUR 423168    SOME OTHER STRING   FAIRFIELD"};
     
     public static String Sorter(String fullDescription){
-        String tab = "\t";
-        int index1 = fullDescription.indexOf(tab);
+        String spaces = "\\s{3,}";//Then find the index of the next word. 
+        String spaces3 = "   ";
+        int index1 = fullDescription.indexOf(spaces3);//Found it when you use "   " doesn't work with the regex
+        System.out.println(index1);
         String temp = fullDescription.substring(index1);
-        int index2 = temp.indexOf(tab);
+        int index2 = temp.indexOf(spaces);
         String str = fullDescription.substring(index1, index2);
+        System.out.println(str);
         return str;
     }
     
     public static void main(String[] args) {
     // TODO code application logic here
-        try{
-        Categorizer catClass = new Categorizer();
-        ArrayList<Spending> arr = new ArrayList();
-        arr = catClass.RecentSpending();
-        String something = arr.get(4).getDescription();
-        System.out.println("Something: " + something);
-        String something1 = Sorter(something);
+        //try{
+        //Categorizer catClass = new Categorizer();
+        //ArrayList<Spending> arr = new ArrayList();
+        //arr = catClass.RecentSpending();
+        //String something = arr.get(4).getDescription();
+        //System.out.println("Something: " + something);
+        String localSomething = testStrings[4];
+        System.out.println("localSomething: " + localSomething);
+        String something1 = Sorter(localSomething);
         System.out.println("Sorted = " + something1);
-        }catch(IOException i){
-            //do stuff
-        }
+        //}catch(IOException i){
+            //do stuff Was IO Exception
+        //}
         
     }
         
