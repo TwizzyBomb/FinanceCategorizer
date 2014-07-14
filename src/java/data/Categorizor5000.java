@@ -111,14 +111,14 @@ static ArrayList<Spending> arr;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
-        Spending description;
+        Spending record;
         String str;
         //String str = Integer.toString(arr.size());
         for(Iterator iterator = arr.iterator(); iterator.hasNext();){
             
             //descriptionTextArea.append(length + newline);
-            description = (Spending)iterator.next();
-            int indx = arr.indexOf(description);
+            record = (Spending)iterator.next();
+            int indx = arr.indexOf(record);
             str = arr.get(indx).getDescription();
             descriptionTextArea.append(str + newline);
             

@@ -57,9 +57,26 @@ public class Categorizer {
             //reset token number
             tokenNumber = 0;
         }
-        System.out.println("Expenses: " + expenses.get(7).getDescription());
+        System.out.println("Expenses: " + expenses.get(4).getDescription());
         return expenses;
         //perhaps this could return as a key value pair list? of descriptions and amounts
+    }
+    
+    String[] eventuallySortable  = {"DDA PURCHASE", "VISA DDA PUR", "DDA WITHDRAW", "CHECK", "DEBIT"};
+    String[] immediatelySortable = {"IBASE", "Online Xfer from", "Online Xfer to", "MAINTENANCE FEE", 
+                                    "Debit", "ST TRF TRANSFER TO SAVINGS ACCT", "NONTD ATM FEE", "DDA DEPOSIT"};
+    String[] testStrings = {"DDA PURCHASE 00704491   SY8 SONO ALE HOUSE 531      NORWALK       * CT",
+                            "VISA DDA PUR 443106     TASTE OF HIGH RIDGE         STAMFORD      * CT",
+                            "DDA PURCHASE 001        STOP   SHOP  637            STAMFORD      * CT",
+                            "VISA DDA PUR 423168     GULF OIL 91190990           FAIRFIELD     * CT"};
+    
+    public static String Sorter(String fullDescription){
+        String tab = "\t";
+        int index1 = fullDescription.indexOf(tab);
+        String temp = fullDescription.substring(index1);
+        int index2 = temp.indexOf(tab);
+        String str = fullDescription.substring(index1, index2);
+        return str;
     }
     
     public static void main(String[] args) {
@@ -68,8 +85,10 @@ public class Categorizer {
         Categorizer catClass = new Categorizer();
         ArrayList<Spending> arr = new ArrayList();
         arr = catClass.RecentSpending();
-        String something = arr.get(7).getDescription();
-        System.out.println("Somthing: " + something);
+        String something = arr.get(4).getDescription();
+        System.out.println("Something: " + something);
+        String something1 = Sorter(something);
+        System.out.println("Sorted = " + something1);
         }catch(IOException i){
             //do stuff
         }
