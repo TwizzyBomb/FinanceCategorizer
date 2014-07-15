@@ -72,12 +72,14 @@ public class Categorizer {
                                     "VISA DDA PUR 423168    SOME OTHER STRING   FAIRFIELD"};
     
     public static String Sorter(String fullDescription){
-        String spaces = "\\s{3,}";//Then find the index of the next word. 
+        String spaces = "\\s{3,}";//You should be able to get it to print out the string you need with regex dude.
         String spaces3 = "   ";
         int index1 = fullDescription.indexOf(spaces3);//Found it when you use "   " doesn't work with the regex
         System.out.println(index1);
         String temp = fullDescription.substring(index1);
+        System.out.println(temp);
         int index2 = temp.indexOf(spaces);
+        System.out.println(index2);
         String str = fullDescription.substring(index1, index2);
         System.out.println(str);
         return str;
