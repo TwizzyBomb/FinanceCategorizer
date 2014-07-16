@@ -7,6 +7,7 @@
 package data;
 import java.io.*;
 import java.util.*;
+import java.util.regex.*;
 /**
  *
  * @author User
@@ -72,16 +73,29 @@ public class Categorizer {
                                     "VISA DDA PUR 423168    SOME OTHER STRING   FAIRFIELD"};
     
     public static String Sorter(String fullDescription){
-        String spaces = "\\s{3,}";//You should be able to get it to print out the string you need with regex dude.
+        String spaces = "(\\s{3,})";//You should be able to get it to print out the string you need with regex dude.
+        Pattern pattern = Pattern.compile(spaces);
+        Matcher m = pattern.matcher(fullDescription);
         String spaces3 = "   ";
-        int index1 = fullDescription.indexOf(spaces3);//Found it when you use "   " doesn't work with the regex
+        int indx;
+        if(m.find()){
+            indx = m.start();
+            System.out.println("Found REGEX @ " + indx);
+        }
+        //got index, now we have to count the number of spaces and turn that into the new index.
+        int spaceNumber;//loop through spaces until you get to the text again. you can use a regex or while!=" "
+        //for(int i=0; i<=spaceNumber; i++; ){
+        //    if(fullDescription.charAt(indx)===" "){       
+        //    }
+        //}
+        int index1 = fullDescription.indexOf(spaces);//Found it when you use "   " doesn't work with the regex
         System.out.println(index1);
         String temp = fullDescription.substring(index1);
         System.out.println(temp);
-        int index2 = temp.indexOf(spaces);
+        int index2 = temp.indexOf(spaces3);
         System.out.println(index2);
         String str = fullDescription.substring(index1, index2);
-        System.out.println(str);
+        //System.out.println(str);
         return str;
     }
     
