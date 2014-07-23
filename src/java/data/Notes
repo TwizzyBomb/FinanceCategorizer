@@ -1,0 +1,13 @@
+                //secondHalf = fullDescription.substring(indx2);
+                //System.out.println("substring=" + secondHalf);
+                //m2 = nwsRegex.matcher(secondHalf);
+                //System.out.println(m2.start());
+                //expendature = fullDescription.substring(m2.start(), /*start of next one*/m.start());
+
+            if(m2.find()){
+            String temp = fullDescription.substring(indx2);
+            System.out.println("rest of string:" + temp);
+            //m3 = whiteSpaceRegex.matcher(temp);
+            testIndx = m3.start();
+            System.out.println("test Index = " + testIndx);
+            }
