@@ -80,6 +80,7 @@ public class Categorizer {
     private static ArrayList<Integer> indexes = new ArrayList<Integer>();
     
     public static String Sorter(String fullDescription){
+        expendature = fullDescription;
         String whiteSpaces = "(\\s{3,})";//You should be able to get it to print out the string you need with regex dude.
         String wordSpaces = "[a-zA-Z0-9]{3,}[ ]?\\b{1,}";//change this to word spaces to get the next needed index
         //fuck it String wordSpaces2 = "^\\w+";
@@ -92,26 +93,26 @@ public class Categorizer {
         int i = 0;
         String secondHalf;
         //include conditional to handle non dda strings
-        
         while(m.find()){
             indx = m.start();
             indx2 = m.end();
             //Using the three spaces to sort center string, couldn't figure out word regex
             if(i<1){
             middleStringIndex = m.end();
-            System.out.println("Starting index of string: " + middleStringIndex);
+            //System.out.println("Starting index of string: " + middleStringIndex);
             }
             //System.out.println("Start of Whitespace: #" + i + " = " + indx);//should be the first instance of 3 spaces after 1st iteration
             //System.out.println("End of Whitespace: #" + i + " = " + indx2);//should be the end of the previous white space
             if(i==1){
                 middleStringIndex2 = m.start();
-                System.out.println("Ending index of string: " + middleStringIndex2);
+                //System.out.println("Ending index of string: " + middleStringIndex2);
                 expendature = fullDescription.substring(middleStringIndex, middleStringIndex2);
                 //got index of first word, now we have to count the number of word characters to get only this.
             }
             i++;
             //System.out.println("Found white spaces @ " + indx + " To " + indx2 + " i= " + i);
         }
+
         //System.out.println(expendature);
         return expendature;
     }
@@ -127,11 +128,12 @@ public class Categorizer {
         
         int length = arr.size();
         for(int i=1;i<length;i++){
-            String something = arr.get(i).getDescription();//calls each objects getDescription()
-            System.out.println("From Main Class: ");
-            System.out.println(something);
-            String expenseItem = Sorter(something);
-            System.out.println("Sorted from Main:" + expenseItem);
+            String description = arr.get(i).getDescription();//calls each objects getDescription()
+            String amount = arr.get(i).getAmount();//calls each objects getAmount
+            //System.out.println("From Main Class: ");
+            //System.out.println(description);
+            String expenseItem = Sorter(description);
+            System.out.println(expenseItem + "," + amount);
         }
         //System.out.println("Something: " + something);
         //String localSomething = testStrings[2];
