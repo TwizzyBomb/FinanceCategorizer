@@ -7,6 +7,7 @@
 package data;
 import java.io.*;
 import java.util.*;
+import java.util.Properties;
 import java.util.regex.*;
 /**
  *
@@ -117,6 +118,23 @@ public class Categorizer {
         return expendature;
     }
     
+    private static Properties properties;
+    private static String str;
+    private static String readProperties(){
+        
+        try{
+        properties = new Properties();
+        properties.load(Categorizer.class.getResourceAsStream("categories.properties"));
+        str = properties.getProperty("username");
+        //System.out.println(str);
+        
+        }catch(IOException e){
+            System.out.println("IO Exception");
+        }
+        
+        return str;
+    }
+    
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //If I wanted to print out the full string for each entry I could return full description and do the strippng in sorter
     public static void main(String[] args) {
@@ -135,6 +153,8 @@ public class Categorizer {
             String expenseItem = Sorter(description);
             System.out.println(expenseItem + "," + amount);
         }
+        String strng = readProperties();
+        System.out.println(strng);
         //System.out.println("Something: " + something);
         //String localSomething = testStrings[2];
         //System.out.println("localSomething: " + localSomething);
