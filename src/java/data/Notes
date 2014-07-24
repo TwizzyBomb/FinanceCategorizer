@@ -11,3 +11,37 @@
             testIndx = m3.start();
             System.out.println("test Index = " + testIndx);
             }
+
+
+
+////////////making a read properties method which gets the properties file from the package your in
+
+    private static Enumeration readProperties(){
+        
+        try{
+        properties = new Properties();
+        properties.load(Categorizer.class.getResourceAsStream("categories.properties"));
+        //str = properties.propertyNames();
+        //System.out.println(str);
+        
+        }catch(IOException e){
+            System.out.println("IO Exception");
+        }
+        
+        return str;
+    }
+
+
+////////////making a Map but it didn't work as intended as shown:
+        categories = new HashMap();
+        categories.put("PARTYING", "SY8 SONO ALE HOUSE 531");
+        categories.put("PARTYING", "WAREHOUSE WINES LIQU");
+        categories.put("Groceries", "COSTCO WHSE 0324");
+        categories.put("Groceries", "BEDBATH BEYOND BEDBATH");
+        //create set view for the map
+        Set set = categories.entrySet();
+        
+        // check set values
+        System.out.println("Set values: " + set);
+
+output: Set values: [Groceries=BEDBATH BEYOND BEDBATH, PARTYING=WAREHOUSE WINES LIQU]

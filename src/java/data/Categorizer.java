@@ -7,7 +7,9 @@
 package data;
 import java.io.*;
 import java.util.*;
-import java.util.Properties;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.*;
 /**
  *
@@ -118,22 +120,42 @@ public class Categorizer {
         return expendature;
     }
     
+
+    
     private static Properties properties;
-    private static String str;
-    private static String readProperties(){
+    private static Enumeration<String> str;
+    private static Map categories;
+    
+    private static void makeHashTblXML(String description, String amount){
+        //Check catagories if the value exists in one of the keys
+        if(categories.containsValue(description)){
+            //now we need to get the key which that value belonged to and plug the value as a new value for this key
+            categories.put("", description);
         
-        try{
-        properties = new Properties();
-        properties.load(Categorizer.class.getResourceAsStream("categories.properties"));
-        str = properties.getProperty("username");
-        //System.out.println(str);
-        
-        }catch(IOException e){
-            System.out.println("IO Exception");
         }
-        
-        return str;
     }
+    
+    private static ArrayList<Expense> TesterArrayList = new ArrayList<Expense>();
+    private static ArrayList<Expense> Partying = new ArrayList<Expense>();
+    private static ArrayList<Expense> Rent = new ArrayList<Expense>();
+    private static ArrayList<Expense> Restaurant = new ArrayList<Expense>();
+    private static ArrayList<Expense> Gas = new ArrayList<Expense>();
+    private static ArrayList<Expense> BankFees = new ArrayList<Expense>();
+    private static ArrayList<Expense> Groceries = new ArrayList<Expense>();
+    private static ArrayList<Expense> Cash = new ArrayList<Expense>();
+    private static ArrayList<Expense> Bills = new ArrayList<Expense>();
+    private static ArrayList<Expense> Misc = new ArrayList<Expense>();
+    private static ArrayList<Expense> Exersize = new ArrayList<Expense>();
+    private static ArrayList<Expense> Transportation = new ArrayList<Expense>();
+    private static ArrayList<Expense> Savings = new ArrayList<Expense>();
+    private static ArrayList<Expense> Dates = new ArrayList<Expense>();
+    private static ArrayList<Expense> Fines = new ArrayList<Expense>();
+    
+    
+    Object[] Categories = {Partying, Rent, Restaurant, Gas, 
+        BankFees, Groceries, Cash, Bills, Misc, Exersize, 
+        Transportation, Savings, Dates, Fines};
+    
     
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //If I wanted to print out the full string for each entry I could return full description and do the strippng in sorter
@@ -144,6 +166,8 @@ public class Categorizer {
         ArrayList<Spending> arr = new ArrayList();//declare array list of type Spending Object
         arr = catClass.RecentSpending();//create an instance of Recent spending object called arr
         
+        
+        
         int length = arr.size();
         for(int i=1;i<length;i++){
             String description = arr.get(i).getDescription();//calls each objects getDescription()
@@ -151,11 +175,14 @@ public class Categorizer {
             //System.out.println("From Main Class: ");
             //System.out.println(description);
             String expenseItem = Sorter(description);
+
+            
+            // Plug them into expense, and their corresponding Array Lists here
+            TesterArrayList.add( new Expense(description ,amount) );
+            
             System.out.println(expenseItem + "," + amount);
+            
         }
-        String strng = readProperties();
-        System.out.println(strng);
-        //System.out.println("Something: " + something);
         //String localSomething = testStrings[2];
         //System.out.println("localSomething: " + localSomething);
         //String something1 = Sorter(something);
@@ -164,8 +191,12 @@ public class Categorizer {
             //do stuff Was IO Exception
         }
         
-    }
+        System.out.println(TesterArrayList.get(10).getAmount());
+
         
+    //end of main    
+    }
+//end of class        
 }
     
 
