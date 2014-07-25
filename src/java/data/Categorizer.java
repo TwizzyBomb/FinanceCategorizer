@@ -124,13 +124,13 @@ public class Categorizer {
     
     private static Properties properties;
     private static Enumeration<String> str;
-    private static Map categories;
+    private static String categories[];
     
     private static void makeHashTblXML(String description, String amount){
         //Check catagories if the value exists in one of the keys
-        if(categories.containsValue(description)){
+        if(categories.equals(description)){
             //now we need to get the key which that value belonged to and plug the value as a new value for this key
-            categories.put("", description);
+            //categories.;
         
         }
     }
@@ -152,15 +152,25 @@ public class Categorizer {
     private static ArrayList<Expense> Fines = new ArrayList<Expense>();
     
     
-    Object[] Categories = {Partying, Rent, Restaurant, Gas, 
-        BankFees, Groceries, Cash, Bills, Misc, Exersize, 
-        Transportation, Savings, Dates, Fines};
-    
+    private static ArrayList<ArrayList<Expense>> Categories = new ArrayList<ArrayList<Expense>>();
     
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //If I wanted to print out the full string for each entry I could return full description and do the strippng in sorter
     public static void main(String[] args) {
     // TODO code application logic here
+        Categories.add(Partying);
+        Categories.add(Groceries);
+        Categories.add(Gas);
+        Partying.add( new Expense("WAREHOUSE WINES", "-43.45"));
+        Partying.add( new Expense("BURGER BAR AND BISTRO", "-22.01"));
+        Partying.add( new Expense("SY8 SONO ALE HOUSE 531", "-32.01"));
+        Groceries.add( new Expense("TRADER JOE S 529 QPS", "-41.45"));
+        Groceries.add( new Expense("TARGET T1544", "-21.01"));
+        Groceries.add( new Expense("RITE AID CORP", "-31.01"));
+        Gas.add( new Expense("EXXONMOBIL", "-45.45"));
+        Gas.add( new Expense("GULF OIL 91190990", "-25.01"));
+        Gas.add( new Expense("SHELL OIL 57542948609", "-35.01"));
+
         try{
         Categorizer catClass = new Categorizer();//actually have to make a constructor because above class aint "static"
         ArrayList<Spending> arr = new ArrayList();//declare array list of type Spending Object
@@ -169,7 +179,7 @@ public class Categorizer {
         
         
         int length = arr.size();
-        for(int i=1;i<length;i++){
+        for(int i=0;i<length;i++){
             String description = arr.get(i).getDescription();//calls each objects getDescription()
             String amount = arr.get(i).getAmount();//calls each objects getAmount
             //System.out.println("From Main Class: ");
@@ -178,23 +188,42 @@ public class Categorizer {
 
             
             // Plug them into expense, and their corresponding Array Lists here
-            TesterArrayList.add( new Expense(description ,amount) );
+            TesterArrayList.add( new Expense(expenseItem ,amount) );
             
-            System.out.println(expenseItem + "," + amount);
+            System.out.println(TesterArrayList.get(i).getDescription() + " " + TesterArrayList.get(i).getAmount());
             
-        }
-        //String localSomething = testStrings[2];
-        //System.out.println("localSomething: " + localSomething);
-        //String something1 = Sorter(something);
-        //System.out.println("Sorted = " + something1);
+        }//End Of Creating TesterArrayList Loop
+
         }catch(IOException i){
             //do stuff Was IO Exception
         }
         
-        System.out.println(TesterArrayList.get(10).getAmount());
-
         
-    //end of main    
+        
+        int len = Categories.size();
+        
+        System.out.println(TesterArrayList.get(10).getAmount());
+        System.out.println(Categories.size());
+        for(int k=0;k<TesterArrayList.size();k++){
+            //Looping through Categories Array
+            for(int i=0;i<len;i++){
+                int siz = Categories.get(i).size();
+                //Looping through each expense category
+                for(int j=0;j<siz;j++){
+                        //            partying, gas, grocieries
+                        String expense = Categories.get(i).get(j).getDescription();
+                        String expense2 = TesterArrayList.get(k).getDescription();
+                        System.out.println(k + " From loop: " + expense);
+                        System.out.println(k + " From TesterArray: " + expense2);
+                        //check if category exists
+                        if(expense.equals(expense2)){
+                            System.out.println("  !! Found !! " + expense + " At TesterArrayList.get(" + k + ")");
+                            
+                        }
+
+                }//End of Inner Category Loop
+            }//End of Outer Category Loop
+        }//End of TesterArrayList Loop
     }
 //end of class        
 }
