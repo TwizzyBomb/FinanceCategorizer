@@ -6,11 +6,13 @@
 
 package data;
 import java.io.*;
+import java.io.Console;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.*;
+import com.thoughtworks.xstream.*;
 /**
  *
  * @author User
@@ -120,22 +122,8 @@ public class Categorizer {
         return expendature;
     }
     
-
-    
-    private static Properties properties;
-    private static Enumeration<String> str;
-    private static String categories[];
-    
-    private static void makeHashTblXML(String description, String amount){
-        //Check catagories if the value exists in one of the keys
-        if(categories.equals(description)){
-            //now we need to get the key which that value belonged to and plug the value as a new value for this key
-            //categories.;
-        
-        }
-    }
-    
-    private static ArrayList<Expense> TesterArrayList = new ArrayList<Expense>();
+    //CATEGORY ARRAY LISTS
+    private static ArrayList<Expense> SortedArrayList = new ArrayList<Expense>();
     private static ArrayList<Expense> Partying = new ArrayList<Expense>();
     private static ArrayList<Expense> Rent = new ArrayList<Expense>();
     private static ArrayList<Expense> Restaurant = new ArrayList<Expense>();
@@ -154,10 +142,67 @@ public class Categorizer {
     
     private static ArrayList<ArrayList<Expense>> Categories = new ArrayList<ArrayList<Expense>>();
     
+    private static void addToCorrectCategory(String category, Expense expense){
+        //Switch Statement that sorts the object into the correct category
+        switch (category) {
+            case "Partying":
+                Partying.add(expense);
+                break;
+            case "Rent":
+                Rent.add(expense);
+                break;
+            case "Restaurant":
+                Rent.add(expense);
+                break;
+            case "Gas":
+                Gas.add(expense);
+                break;
+            case "BankFees":
+                BankFees.add(expense);
+                break;
+            case "Groceries":
+                Groceries.add(expense);
+                break;
+            case "Cash":
+                Cash.add(expense);
+                break;
+            case "Bills":
+                Bills.add(expense);
+                break;
+            case "Misc":
+                Misc.add(expense);
+                break;
+            case "Exersize":
+                Exersize.add(expense);
+                break;
+            case "Transportation":
+                Transportation.add(expense);
+                break;
+            case "Savings":
+                Savings.add(expense);
+                break;
+            case "Dates":
+                Dates.add(expense);
+                break;
+            case "Fines":
+                System.out.println("Accepted Input!");
+                Fines.add(expense);
+                break;
+            default: System.out.println("Not A valid Entry");
+        }
+        //if(categories.equals(description)){
+            //now we need to get the key which that value belonged to and plug the value as a new value for this key
+            //categories.;
+        
+        //}
+    }
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //If I wanted to print out the full string for each entry I could return full description and do the strippng in sorter
-    public static void main(String[] args) {
-    // TODO code application logic here
+    public static void main(String[] args) throws IOException {
+        //For user input
+        Console c = System.console();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
         Categories.add(Partying);
         Categories.add(Groceries);
         Categories.add(Gas);
@@ -177,7 +222,7 @@ public class Categorizer {
         arr = catClass.RecentSpending();//create an instance of Recent spending object called arr
         
         
-        
+        //THIS IS WHERE I PLUG IN THE VALUES OF SortedArrayList FROM SORTER
         int length = arr.size();
         for(int i=0;i<length;i++){
             String description = arr.get(i).getDescription();//calls each objects getDescription()
@@ -188,11 +233,14 @@ public class Categorizer {
 
             
             // Plug them into expense, and their corresponding Array Lists here
-            TesterArrayList.add( new Expense(expenseItem ,amount) );
             
-            System.out.println(TesterArrayList.get(i).getDescription() + " " + TesterArrayList.get(i).getAmount());
+            //WHAT IF I PLUG THE CATEGORIES IN WITH A LOOP?
+            //Putting sorted 
+            SortedArrayList.add( new Expense(expenseItem ,amount) );
             
-        }//End Of Creating TesterArrayList Loop
+            //System.out.println("#" + i + " " + SortedArrayList.get(i).getDescription() + " Amount: " + SortedArrayList.get(i).getAmount());
+            
+        }//End Of Creating SortedArrayList Loop
 
         }catch(IOException i){
             //do stuff Was IO Exception
@@ -202,30 +250,48 @@ public class Categorizer {
         
         int len = Categories.size();
         
-        System.out.println(TesterArrayList.get(10).getAmount());
+        System.out.println(SortedArrayList.get(10).getAmount());
         System.out.println(Categories.size());
-        for(int k=0;k<TesterArrayList.size();k++){
+        for(int i=0;i<SortedArrayList.size();i++){
             //Looping through Categories Array
-            for(int i=0;i<len;i++){
-                int siz = Categories.get(i).size();
+            for(int j=0;j<len;j++){
+                int siz = Categories.get(j).size();
                 //Looping through each expense category
-                for(int j=0;j<siz;j++){
+                for(int k=0;k<siz;k++){
                         //            partying, gas, grocieries
-                        String expense = Categories.get(i).get(j).getDescription();
-                        String expense2 = TesterArrayList.get(k).getDescription();
-                        System.out.println(k + " From loop: " + expense);
-                        System.out.println(k + " From TesterArray: " + expense2);
+                        String expense = Categories.get(j).get(k).getDescription();//From Known Categories
+                        String expense2 = SortedArrayList.get(i).getDescription();//From CSV after Sorting Description
+                        System.out.println(i + " From Categories Loop: " + expense);
+                        System.out.println(i + " From CSV File:        " + expense2);
                         //check if category exists
-                        if(expense.equals(expense2)){
-                            System.out.println("  !! Found !! " + expense + " At TesterArrayList.get(" + k + ")");
+                        if(expense.equals(expense2)){//MATCH FOUND, IS IN CATEGORY?
+                            System.out.println("  !! Found !! " + expense + " At Index " + i + ")");
                             
+                        }else{//NO MATCH FOUND, ADD TO PROPER CATEGORY. Get user input here...
+                            System.out.println("  !! No Match Found !! " + expense + " At Index " + i + ")");
+                            System.out.println(" Add " + expense + " to a Category?");
+                            System.out.println(" Y/N ");
+                            //Attempts to get input from the user
+                            String input = br.readLine();
+                            
+                            System.out.println(input);
+                            if(input.equals("y") || input.equals("Y")){
+                                //Put in category
+                                System.out.println(" Add to the correct category from the List: ");
+                                String ctgry = br.readLine();
+                                addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
+                                //System.out.println(" Accepted Input! ");
+                                
+                            }
                         }
+                        
 
                 }//End of Inner Category Loop
             }//End of Outer Category Loop
-        }//End of TesterArrayList Loop
-    }
-//end of class        
+        }//End of SortedArrayList Loop
+        XStream xstream = new XStream();
+    }//End of Main
+
 }
-    
+
 
