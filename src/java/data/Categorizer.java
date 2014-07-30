@@ -140,6 +140,8 @@ public class Categorizer {
     private static ArrayList<Expense> Fines = new ArrayList<Expense>();
     //for matching
     private static boolean foundMatch;
+    private static String expense;
+    private static String expense2;
     
     private static ArrayList<ArrayList<Expense>> Categories = new ArrayList<ArrayList<Expense>>();
     //For Printing Purposes
@@ -256,14 +258,14 @@ public class Categorizer {
         for(int i=1;i<SortedArrayList.size();i++){
             //Looping through Categories Array
             for(int j=0;j<len;j++){
+                foundMatch=false;
                 int siz = Categories.get(j).size();
                 System.out.println("Categories.get(j).size() = " + siz );
                 //Looping through each expense category
                 for(int k=0;k<siz;k++){
-                        foundMatch=false;
                         //            partying, gas, grocieries
-                        String expense = Categories.get(j).get(k).getDescription();//From Known Categories
-                        String expense2 = SortedArrayList.get(i).getDescription();//From CSV after Sorting Description
+                        expense = Categories.get(j).get(k).getDescription();//From Known Categories
+                        expense2 = SortedArrayList.get(i).getDescription();//From CSV after Sorting Description
                         System.out.println(i + " From Categories Loop: " + expense);
                         System.out.println(i + " From CSV File:        " + expense2); 
                         //check if category exists
@@ -276,35 +278,36 @@ public class Categorizer {
                             //break;
                         }
                         
-                        if(k==(siz-1) && foundMatch!=true){//NO MATCH FOUND, ADD TO PROPER CATEGORY. Get user input here...
-                            System.out.println("  !! No Match Found !! " + expense2 + " At Index " + i + ")");
-                            System.out.println(" Add " + expense2 + " to a Category?");
-                            System.out.println(" Y/N ");
-                            //Attempts to get input from the user
-                            String YNinput = br.readLine();
-                            
-                            System.out.println("you said: " + YNinput);
-                            if(YNinput.equals("y") || YNinput.equals("Y")){
-                                //Put in category
-                                System.out.println(" Add to the correct category from the List: ");
-                                for(int l=0;l<categoryStrings.length;l++){
-                                    System.out.println(categoryStrings[l]);
-                                }
-                                String ctgry = br.readLine();
-                                addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
-                                System.out.println(" Accepted Input! ");
-                                
-                            }else if(YNinput.equals("n") || YNinput.equals("N")){
-                                System.out.println("not added");
-                            }else{
-                                System.out.println("don't recognize input..moving on");
-                            }
-                        }
+
                         //You need to reload the list after somethings added
                         //You also need to have it search through the entire list and THEN
                         //Say "NOT FOUND" add to category?
                         
                 }//End of Inner Category Loop
+                    if(j==(len-1) && foundMatch!=true){//NO MATCH FOUND, ADD TO PROPER CATEGORY. Get user input here...
+                    System.out.println("  !! No Match Found !! " + expense2 + " At Index " + i + ")");
+                    System.out.println(" Add " + expense2 + " to a Category?");
+                    System.out.println(" Y/N ");
+                    //Attempts to get input from the user
+                    String YNinput = br.readLine();
+
+                    System.out.println("you said: " + YNinput);
+                    if(YNinput.equals("y") || YNinput.equals("Y")){
+                        //Put in category
+                        System.out.println(" Add to the correct category from the List: ");
+                        for(int l=0;l<categoryStrings.length;l++){
+                            System.out.println(categoryStrings[l]);
+                        }
+                        String ctgry = br.readLine();
+                        addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
+                        System.out.println(" Accepted Input! ");
+
+                    }else if(YNinput.equals("n") || YNinput.equals("N")){
+                        System.out.println("not added");
+                    }else{
+                        System.out.println("don't recognize input..moving on");
+                    }
+                }
                 
             }//End of Outer Category Loop
         }//End of SortedArrayList Loop
