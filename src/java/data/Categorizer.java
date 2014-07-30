@@ -19,7 +19,7 @@ import com.thoughtworks.xstream.*;
  */
 public class Categorizer {
 
-    static String tempFilePath = "C:\\Users\\User\\Downloads\\csvdownload.csv";
+    static String tempFilePath = "C:\\Users\\User\\Downloads\\csvdownload3.csv";
 
     //Eventually used to hold a lines worth of data from the CSV file
     static String fileName;//used in Buffered reader conditional which builds arrays
@@ -124,7 +124,7 @@ public class Categorizer {
     
     //CATEGORY ARRAY LISTS
     private static ArrayList<Expense> SortedArrayList = new ArrayList<Expense>();
-    private static ArrayList<Expense> Partying = new ArrayList<Expense>();
+    public static ArrayList<Expense> Partying = new ArrayList<Expense>();
     private static ArrayList<Expense> Rent = new ArrayList<Expense>();
     private static ArrayList<Expense> Restaurant = new ArrayList<Expense>();
     private static ArrayList<Expense> Gas = new ArrayList<Expense>();
@@ -138,9 +138,14 @@ public class Categorizer {
     private static ArrayList<Expense> Savings = new ArrayList<Expense>();
     private static ArrayList<Expense> Dates = new ArrayList<Expense>();
     private static ArrayList<Expense> Fines = new ArrayList<Expense>();
-    
+    //for matching
+    private static boolean foundMatch;
     
     private static ArrayList<ArrayList<Expense>> Categories = new ArrayList<ArrayList<Expense>>();
+    //For Printing Purposes
+    private static String[] categoryStrings = {"Partying", "Rent", "Restaurant", "Gas", "BankFees",
+        "Groceries", "Cash", "Bills", "Misc", "Exersize", "Transportation", "Savings", "Dates", "Fines" };
+    
     
     private static void addToCorrectCategory(String category, Expense expense){
         //Switch Statement that sorts the object into the correct category
@@ -185,17 +190,13 @@ public class Categorizer {
                 Dates.add(expense);
                 break;
             case "Fines":
-                System.out.println("Accepted Input!");
+                System.out.println("Accepted Input, Expense Added");
                 Fines.add(expense);
                 break;
-            default: System.out.println("Not A valid Entry");
+            default: System.out.println("Not A valid Entry, Nothing added");
         }
-        //if(categories.equals(description)){
-            //now we need to get the key which that value belonged to and plug the value as a new value for this key
-            //categories.;
-        
-        //}
     }
+    
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //If I wanted to print out the full string for each entry I could return full description and do the strippng in sorter
     public static void main(String[] args) throws IOException {
@@ -211,7 +212,7 @@ public class Categorizer {
         Partying.add( new Expense("SY8 SONO ALE HOUSE 531", "-32.01"));
         Groceries.add( new Expense("TRADER JOE S 529 QPS", "-41.45"));
         Groceries.add( new Expense("TARGET T1544", "-21.01"));
-        Groceries.add( new Expense("RITE AID CORP", "-31.01"));
+        Groceries.add( new Expense("RITE AID CORP", "-31.01")); 
         Gas.add( new Expense("EXXONMOBIL", "-45.45"));
         Gas.add( new Expense("GULF OIL 91190990", "-25.01"));
         Gas.add( new Expense("SHELL OIL 57542948609", "-35.01"));
@@ -250,48 +251,68 @@ public class Categorizer {
         
         int len = Categories.size();
         
-        System.out.println(SortedArrayList.get(10).getAmount());
-        System.out.println(Categories.size());
-        for(int i=0;i<SortedArrayList.size();i++){
+        //System.out.println(SortedArrayList.get(10).getAmount());
+        System.out.println("Categories.size() = " + len );
+        for(int i=1;i<SortedArrayList.size();i++){
             //Looping through Categories Array
             for(int j=0;j<len;j++){
                 int siz = Categories.get(j).size();
+                System.out.println("Categories.get(j).size() = " + siz );
                 //Looping through each expense category
                 for(int k=0;k<siz;k++){
+                        foundMatch=false;
                         //            partying, gas, grocieries
                         String expense = Categories.get(j).get(k).getDescription();//From Known Categories
                         String expense2 = SortedArrayList.get(i).getDescription();//From CSV after Sorting Description
                         System.out.println(i + " From Categories Loop: " + expense);
-                        System.out.println(i + " From CSV File:        " + expense2);
+                        System.out.println(i + " From CSV File:        " + expense2); 
                         //check if category exists
                         if(expense.equals(expense2)){//MATCH FOUND, IS IN CATEGORY?
                             System.out.println("  !! Found !! " + expense + " At Index " + i + ")");
-                            
-                        }else{//NO MATCH FOUND, ADD TO PROPER CATEGORY. Get user input here...
-                            System.out.println("  !! No Match Found !! " + expense + " At Index " + i + ")");
-                            System.out.println(" Add " + expense + " to a Category?");
-                            System.out.println(" Y/N ");
-                            //Attempts to get input from the user
-                            String input = br.readLine();
-                            
-                            System.out.println(input);
-                            if(input.equals("y") || input.equals("Y")){
-                                //Put in category
-                                System.out.println(" Add to the correct category from the List: ");
-                                String ctgry = br.readLine();
-                                addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
-                                //System.out.println(" Accepted Input! ");
-                                
-                            }
+                            foundMatch = true;
+                            break;
+                        }else if(!expense.equals(expense2)){
+                            System.out.println("Not a match");
+                            //break;
                         }
                         
-
+                        if(k==(siz-1) && foundMatch!=true){//NO MATCH FOUND, ADD TO PROPER CATEGORY. Get user input here...
+                            System.out.println("  !! No Match Found !! " + expense2 + " At Index " + i + ")");
+                            System.out.println(" Add " + expense2 + " to a Category?");
+                            System.out.println(" Y/N ");
+                            //Attempts to get input from the user
+                            String YNinput = br.readLine();
+                            
+                            System.out.println("you said: " + YNinput);
+                            if(YNinput.equals("y") || YNinput.equals("Y")){
+                                //Put in category
+                                System.out.println(" Add to the correct category from the List: ");
+                                for(int l=0;l<categoryStrings.length;l++){
+                                    System.out.println(categoryStrings[l]);
+                                }
+                                String ctgry = br.readLine();
+                                addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
+                                System.out.println(" Accepted Input! ");
+                                
+                            }else if(YNinput.equals("n") || YNinput.equals("N")){
+                                System.out.println("not added");
+                            }else{
+                                System.out.println("don't recognize input..moving on");
+                            }
+                        }
+                        //You need to reload the list after somethings added
+                        //You also need to have it search through the entire list and THEN
+                        //Say "NOT FOUND" add to category?
+                        
                 }//End of Inner Category Loop
+                
             }//End of Outer Category Loop
         }//End of SortedArrayList Loop
         XStream xstream = new XStream();
+        String xml = xstream.toXML(Categories);
+        xstream.setMode(XStream.NO_REFERENCES);
+        //xstream.alias("Expense", Expense.class);
+        System.out.println(xml);
     }//End of Main
 
 }
-
-
