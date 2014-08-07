@@ -142,6 +142,10 @@ public class Categorizer {
     private static boolean foundMatch;
     private static String expense;
     private static String expense2;
+    private static String amount;
+    private static String amount2;
+    private static String cmprExpense;
+    private static String cmprAmount;
     
     private static ArrayList<ArrayList<Expense>> Categories = new ArrayList<ArrayList<Expense>>();
     //For Printing Purposes
@@ -207,17 +211,35 @@ public class Categorizer {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
         Categories.add(Partying);
-        Categories.add(Groceries);
+        Categories.add(Rent);
+        Categories.add(Restaurant);
         Categories.add(Gas);
-        Partying.add( new Expense("WAREHOUSE WINES", "-43.45"));
-        Partying.add( new Expense("BURGER BAR AND BISTRO", "-22.01"));
-        Partying.add( new Expense("SY8 SONO ALE HOUSE 531", "-32.01"));
-        Groceries.add( new Expense("TRADER JOE S 529 QPS", "-41.45"));
-        Groceries.add( new Expense("TARGET T1544", "-21.01"));
-        Groceries.add( new Expense("RITE AID CORP", "-31.01")); 
-        Gas.add( new Expense("EXXONMOBIL", "-45.45"));
-        Gas.add( new Expense("GULF OIL 91190990", "-25.01"));
-        Gas.add( new Expense("SHELL OIL 57542948609", "-35.01"));
+        Categories.add(BankFees);
+        Categories.add(Groceries);
+        Categories.add(Cash);
+        Categories.add(Bills);
+        Categories.add(Cash);
+        Categories.add(Bills);
+        Categories.add(Misc);
+        Categories.add(Exersize);
+        Categories.add(Transportation);
+        Categories.add(Savings);
+        Categories.add(Dates);
+        Categories.add(Fines);
+        Partying.add( new Expense("Partying", "0"));
+        Rent.add( new Expense("Rent", "0"));
+        Restaurant.add( new Expense("Restaurant", "0"));
+        Gas.add( new Expense("Gas", "0"));
+        BankFees.add( new Expense("Bank Fees", "0"));
+        Groceries.add( new Expense("Groceries", "0"));
+        Cash.add( new Expense("Cash", "0"));
+        Bills.add( new Expense("Bills", "0"));
+        Misc.add( new Expense("Misc", "0"));
+        Exersize.add( new Expense("Exersize", "0")); 
+        Transportation.add( new Expense("Transportation", "0")); 
+        Savings.add( new Expense("Savings", "0")); 
+        Dates.add( new Expense("Dates", "0")); 
+        Fines.add( new Expense("Fines", "0")); 
 
         try{
         Categorizer catClass = new Categorizer();//actually have to make a constructor because above class aint "static"
@@ -266,12 +288,17 @@ public class Categorizer {
                         //            partying, gas, grocieries
                         expense = Categories.get(j).get(k).getDescription();//From Known Categories
                         expense2 = SortedArrayList.get(i).getDescription();//From CSV after Sorting Description
-                        System.out.println(i + " From Categories Loop: " + expense);
-                        System.out.println(i + " From CSV File:        " + expense2); 
+                        //now compare the expenses to the amounts
+                        amount = Categories.get(j).get(k).getAmount();//From Known Categories
+                        amount2 = SortedArrayList.get(i).getAmount();//From CSV after Sorting Description
+                        System.out.println(i + " From Categories Loop: " + expense + ", Amount: " + amount);
+                        System.out.println(i + " From CSV File:        " + expense2+ ", Amount: " + amount2); 
                         //check if category exists
                         if(expense.equals(expense2)){//MATCH FOUND, IS IN CATEGORY?
                             System.out.println("  !! Found !! " + expense + " At Index " + i + ")");
                             foundMatch = true;
+                            cmprExpense = expense;
+                            cmprAmount = amount;
                             break;
                         }else if(!expense.equals(expense2)){
                             System.out.println("Not a match");
@@ -285,8 +312,9 @@ public class Categorizer {
                         
                 }//End of Inner Category Loop
                     if(j==(len-1) && foundMatch!=true){//NO MATCH FOUND, ADD TO PROPER CATEGORY. Get user input here...
-                    System.out.println("  !! No Match Found !! " + expense2 + " At Index " + i + ")");
-                    System.out.println(" Add " + expense2 + " to a Category?");
+                    System.out.println("  !! Match Found !! " + expense2 + " At Index " + i + ")");
+                    System.out.println(" Add " + expense2 + " with amount " + amount2 + " to a Category?");
+                    System.out.println(" Compare to " + cmprExpense + " with amount " + cmprAmount);
                     System.out.println(" Y/N ");
                     //Attempts to get input from the user
                     String YNinput = br.readLine();
@@ -311,7 +339,7 @@ public class Categorizer {
                 
             }//End of Outer Category Loop
         }//End of SortedArrayList Loop
-        System.out.println(Categories.get(2).get(2).getDescription());
+        //System.out.println(Categories.get(2).get(2).getDescription());
         XStream xstream = new XStream();
         String xml = xstream.toXML(Categories);
         xstream.setMode(XStream.NO_REFERENCES);
@@ -345,7 +373,7 @@ public class Categorizer {
             br2.close();
         }
         ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
-        System.out.println(cats2.get(2).get(2).getDescription());
+        //System.out.println(cats2.get(2).get(2).getDescription());
     }//End of Main
 
 }

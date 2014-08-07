@@ -1,44 +1,104 @@
 <list>
   <list>
     <data.Expense>
-      <description>WAREHOUSE WINES</description>
-      <amount>-43.45</amount>
+      <description>Partying</description>
+      <amount>0</amount>
     </data.Expense>
     <data.Expense>
-      <description>BURGER BAR AND BISTRO</description>
-      <amount>-22.01</amount>
-    </data.Expense>
-    <data.Expense>
-      <description>SY8 SONO ALE HOUSE 531</description>
-      <amount>-32.01</amount>
+      <description>BANGON LLC</description>
+      <amount>-47.57</amount>
     </data.Expense>
   </list>
   <list>
     <data.Expense>
-      <description>TRADER JOE S 529 QPS</description>
-      <amount>-41.45</amount>
+      <description>Rent</description>
+      <amount>0</amount>
     </data.Expense>
     <data.Expense>
-      <description>TARGET T1544</description>
-      <amount>-21.01</amount>
+      <description>FU JI RESTAURANT</description>
+      <amount>-24.06</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>Restaurant</description>
+      <amount>0</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>Gas</description>
+      <amount>0</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>Bank Fees</description>
+      <amount>0</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>Groceries</description>
+      <amount>0</amount>
     </data.Expense>
     <data.Expense>
       <description>RITE AID CORP</description>
-      <amount>-31.01</amount>
+      <amount>-17.39</amount>
     </data.Expense>
   </list>
   <list>
     <data.Expense>
-      <description>EXXONMOBIL</description>
-      <amount>-45.45</amount>
+      <description>Cash</description>
+      <amount>0</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>Bills</description>
+      <amount>0</amount>
+    </data.Expense>
+  </list>
+  <list reference="../list[7]"/>
+  <list reference="../list[8]"/>
+  <list>
+    <data.Expense>
+      <description>Misc</description>
+      <amount>0</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>Exersize</description>
+      <amount>0</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>Transportation</description>
+      <amount>0</amount>
     </data.Expense>
     <data.Expense>
-      <description>GULF OIL 91190990</description>
-      <amount>-25.01</amount>
+      <description>NST METRO NORTH TVM532</description>
+      <amount>-21.25</amount>
     </data.Expense>
+  </list>
+  <list>
     <data.Expense>
-      <description>SHELL OIL 57542948609</description>
-      <amount>-35.01</amount>
+      <description>Savings</description>
+      <amount>0</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>Dates</description>
+      <amount>0</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>Fines</description>
+      <amount>0</amount>
     </data.Expense>
   </list>
 </list>
