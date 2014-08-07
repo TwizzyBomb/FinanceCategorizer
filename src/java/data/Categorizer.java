@@ -311,11 +311,41 @@ public class Categorizer {
                 
             }//End of Outer Category Loop
         }//End of SortedArrayList Loop
+        System.out.println(Categories.get(2).get(2).getDescription());
         XStream xstream = new XStream();
         String xml = xstream.toXML(Categories);
         xstream.setMode(XStream.NO_REFERENCES);
-        //xstream.alias("Expense", Expense.class);
+        xstream.alias("Expense", Expense.class);
         System.out.println(xml);
+        Writer writer = null;
+        try {
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("Categories.xml"), "utf-8"));
+            writer.write(xml);
+        }catch(IOException ex){
+            
+        }finally{
+            try{writer.close();} catch(Exception ex) {}
+        }
+        String everything;
+        ArrayList<ArrayList<Expense>> cats = (ArrayList<ArrayList<Expense>>)xstream.fromXML(xml);
+        //System.out.println(cats.get(2).get(2).getDescription());//IT WORKS! I can get the info back from the xml
+        //Now I just have to make it into a file and load up the file at the begining
+        BufferedReader br2 = new BufferedReader(new FileReader("Categories.xml"));
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = br2.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br2.readLine();
+            }
+            everything = sb.toString();
+        } finally {
+            br2.close();
+        }
+        ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
+        System.out.println(cats2.get(2).get(2).getDescription());
     }//End of Main
 
 }

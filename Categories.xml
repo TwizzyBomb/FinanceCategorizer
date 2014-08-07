@@ -1,0 +1,44 @@
+<list>
+  <list>
+    <data.Expense>
+      <description>WAREHOUSE WINES</description>
+      <amount>-43.45</amount>
+    </data.Expense>
+    <data.Expense>
+      <description>BURGER BAR AND BISTRO</description>
+      <amount>-22.01</amount>
+    </data.Expense>
+    <data.Expense>
+      <description>SY8 SONO ALE HOUSE 531</description>
+      <amount>-32.01</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>TRADER JOE S 529 QPS</description>
+      <amount>-41.45</amount>
+    </data.Expense>
+    <data.Expense>
+      <description>TARGET T1544</description>
+      <amount>-21.01</amount>
+    </data.Expense>
+    <data.Expense>
+      <description>RITE AID CORP</description>
+      <amount>-31.01</amount>
+    </data.Expense>
+  </list>
+  <list>
+    <data.Expense>
+      <description>EXXONMOBIL</description>
+      <amount>-45.45</amount>
+    </data.Expense>
+    <data.Expense>
+      <description>GULF OIL 91190990</description>
+      <amount>-25.01</amount>
+    </data.Expense>
+    <data.Expense>
+      <description>SHELL OIL 57542948609</description>
+      <amount>-35.01</amount>
+    </data.Expense>
+  </list>
+</list>
