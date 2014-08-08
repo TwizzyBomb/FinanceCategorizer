@@ -1,10 +1,27 @@
 <tree-map>
   <entry>
+    <Category>Asset</Category>
+    <Expenses>
+      <Expense>
+        <description>Asset</description>
+        <amount>null</amount>
+      </Expense>
+      <Expense>
+        <description>Online Xfer Transfer from SV 00004789062224</description>
+        <amount>25</amount>
+      </Expense>
+    </Expenses>
+  </entry>
+  <entry>
     <Category>BankFees</Category>
     <Expenses>
       <Expense>
         <description>Bank Fees</description>
         <amount>null</amount>
+      </Expense>
+      <Expense>
+        <description>MAINTENANCE FEE</description>
+        <amount>-15</amount>
       </Expense>
     </Expenses>
   </entry>
@@ -60,6 +77,10 @@
         <description>Gas</description>
         <amount>null</amount>
       </Expense>
+      <Expense>
+        <description>GULF OIL 91190990</description>
+        <amount>2.65</amount>
+      </Expense>
     </Expenses>
   </entry>
   <entry>
@@ -68,10 +89,6 @@
       <Expense>
         <description>Groceries</description>
         <amount>null</amount>
-      </Expense>
-      <Expense>
-        <description>RITE AID CORP</description>
-        <amount>-17.39</amount>
       </Expense>
     </Expenses>
   </entry>
@@ -91,6 +108,14 @@
         <description>Partying</description>
         <amount>null</amount>
       </Expense>
+      <Expense>
+        <description>THE FIELD</description>
+        <amount>-16</amount>
+      </Expense>
+      <Expense>
+        <description>KRAUSZERS FOOD STORE</description>
+        <amount>-19.21</amount>
+      </Expense>
     </Expenses>
   </entry>
   <entry>
@@ -108,6 +133,10 @@
       <Expense>
         <description>Restaurant</description>
         <amount>null</amount>
+      </Expense>
+      <Expense>
+        <description>VILLAGE BAGELS FAIRFIELD</description>
+        <amount>-5.84</amount>
       </Expense>
     </Expenses>
   </entry>

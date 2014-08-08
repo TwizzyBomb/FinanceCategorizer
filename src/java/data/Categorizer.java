@@ -19,7 +19,7 @@ import com.thoughtworks.xstream.*;
  */
 public class Categorizer {
 
-    static String tempFilePath = "C:\\Users\\User\\Downloads\\csvdownload3.csv";
+    static String tempFilePath = "C:\\Users\\User\\Downloads\\csvdownload2.csv";
 
     //Eventually used to hold a lines worth of data from the CSV file
     static String fileName;//used in Buffered reader conditional which builds arrays
@@ -138,8 +138,9 @@ public class Categorizer {
     private static ArrayList<Expense> Savings = new ArrayList<Expense>();
     private static ArrayList<Expense> Dates = new ArrayList<Expense>();
     private static ArrayList<Expense> Fines = new ArrayList<Expense>();
+    private static ArrayList<Expense> Asset = new ArrayList<Expense>();
     //for matching
-    private static boolean foundMatch;
+    private static boolean foundMatch =false;
     private static String expense;
     private static String expense2;
     private static String amount;
@@ -150,7 +151,7 @@ public class Categorizer {
     private static TreeMap<String, ArrayList<Expense>> Categories = new TreeMap<String, ArrayList<Expense>>();
     //For Printing Purposes
     private static String[] categoryStrings = {"Partying", "Rent", "Restaurant", "Gas", "BankFees",
-        "Groceries", "Cash", "Bills", "Misc", "Exersize", "Transportation", "Savings", "Dates", "Fines" };
+        "Groceries", "Cash", "Bills", "Misc", "Exersize", "Transportation", "Savings", "Dates", "Fines", "Asset" };
     
     
     private static void addToCorrectCategory(String category, Expense expense){
@@ -199,6 +200,10 @@ public class Categorizer {
                 System.out.println("Accepted Input, Expense Added");
                 Fines.add(expense);
                 break;
+            case "Asset":
+                System.out.println("Accepted Input, Expense Added");
+                Asset.add(expense);
+                break;                
             default: System.out.println("Not A valid Entry, Nothing added");
         }
     }
@@ -226,11 +231,17 @@ public class Categorizer {
         Categories.put("Savings", Savings);
         Categories.put("Dates", Dates);
         Categories.put("Fines", Fines);
+        Categories.put("Asset", Asset);
         Partying.add( new Expense("Partying", "null"));
+        Partying.add( new Expense("THE FIELD", "-16"));
+        Partying.add( new Expense("KRAUSZERS FOOD STORE", "-19.21"));
         Rent.add( new Expense("Rent", "null"));
         Restaurant.add( new Expense("Restaurant", "null"));
+        Restaurant.add( new Expense("VILLAGE BAGELS FAIRFIELD", "-5.84"));
         Gas.add( new Expense("Gas", "null"));
+        Gas.add( new Expense("GULF OIL 91190990", "2.65"));//SHOW AMOUNTS WITH THE QUESTIONS BECAUSE EVERYMORNINGS BREAKFAST SHOULD COUNT AS GROCERIES
         BankFees.add( new Expense("Bank Fees", "null"));
+        BankFees.add( new Expense("MAINTENANCE FEE", "-15"));
         Groceries.add( new Expense("Groceries", "null"));
         Cash.add( new Expense("Cash", "null"));
         Bills.add( new Expense("Bills", "null"));
@@ -240,7 +251,9 @@ public class Categorizer {
         Savings.add( new Expense("Savings", "null")); 
         Dates.add( new Expense("Dates", "null")); 
         Fines.add( new Expense("Fines", "null")); 
-
+        Asset.add( new Expense("Asset", "null"));
+        Asset.add( new Expense("Online Xfer Transfer from SV 00004789062224", "25")); 
+        
         try{
         Categorizer catClass = new Categorizer();//actually have to make a constructor because above class aint "static"
         ArrayList<Spending> arr = new ArrayList();//declare array list of type Spending Object
@@ -281,7 +294,7 @@ public class Categorizer {
             //Looping through Categories Array
             //Use Categories Array!
             for(int j=0;j<len;j++){
-                foundMatch=false;
+                foundMatch = false;
                 int siz = Categories.get(categoryStrings[j]).size();
                 System.out.println("Current Categories length = " + siz );
                 //Looping through individual expense categories (partying, groceries, etc)
@@ -299,6 +312,7 @@ public class Categorizer {
                         if(expense.equals(expense2)){//MATCH FOUND, IS IN CATEGORY?
                             System.out.println("  !! Found !! " + expense + " At Index " + i + ")");
                             foundMatch = true;
+                            System.out.println("foundMatch = " + foundMatch);
                             cmprExpense = expense;
                             cmprAmount = amount;
                             break;
@@ -313,7 +327,7 @@ public class Categorizer {
                         //Say "NOT FOUND" add to category?
                         
                 }//End of Inner Category Loop
-                    if(j==(len-1) && foundMatch!=true){//NO MATCH FOUND, ADD TO PROPER CATEGORY. Get user input here...
+                    if(j==(len-1) && foundMatch==true){//NO MATCH FOUND, ADD TO PROPER CATEGORY. Get user input here...
                     System.out.println("  !! Match Found !! " + expense2 + " At Index " + i + ")");
                     System.out.println(" Add " + expense2 + " with amount " + amount2 + " to a Category?");
                     System.out.println(" Compare to " + cmprExpense + " with amount " + cmprAmount);
