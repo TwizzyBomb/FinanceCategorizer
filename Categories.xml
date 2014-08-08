@@ -1,104 +1,104 @@
-<list>
-  <list>
-    <data.Expense>
+<superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Partying</description>
       <amount>0</amount>
-    </data.Expense>
-    <data.Expense>
+    </Expense>
+    <Expense>
       <description>BANGON LLC</description>
       <amount>-47.57</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Rent</description>
       <amount>0</amount>
-    </data.Expense>
-    <data.Expense>
+    </Expense>
+    <Expense>
       <description>FU JI RESTAURANT</description>
       <amount>-24.06</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Restaurant</description>
       <amount>0</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Gas</description>
       <amount>0</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Bank Fees</description>
       <amount>0</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Groceries</description>
       <amount>0</amount>
-    </data.Expense>
-    <data.Expense>
+    </Expense>
+    <Expense>
       <description>RITE AID CORP</description>
       <amount>-17.39</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Cash</description>
       <amount>0</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Bills</description>
       <amount>0</amount>
-    </data.Expense>
-  </list>
-  <list reference="../list[7]"/>
-  <list reference="../list[8]"/>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList reference="../superDuperList[7]"/>
+  <superDuperList reference="../superDuperList[8]"/>
+  <superDuperList>
+    <Expense>
       <description>Misc</description>
       <amount>0</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Exersize</description>
       <amount>0</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Transportation</description>
       <amount>0</amount>
-    </data.Expense>
-    <data.Expense>
+    </Expense>
+    <Expense>
       <description>NST METRO NORTH TVM532</description>
       <amount>-21.25</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Savings</description>
       <amount>0</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Dates</description>
       <amount>0</amount>
-    </data.Expense>
-  </list>
-  <list>
-    <data.Expense>
+    </Expense>
+  </superDuperList>
+  <superDuperList>
+    <Expense>
       <description>Fines</description>
       <amount>0</amount>
-    </data.Expense>
-  </list>
-</list>
+    </Expense>
+  </superDuperList>
+</superDuperList>

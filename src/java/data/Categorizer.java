@@ -341,9 +341,11 @@ public class Categorizer {
         }//End of SortedArrayList Loop
         //System.out.println(Categories.get(2).get(2).getDescription());
         XStream xstream = new XStream();
-        String xml = xstream.toXML(Categories);
-        xstream.setMode(XStream.NO_REFERENCES);
         xstream.alias("Expense", Expense.class);
+        xstream.alias("Category", List.class);
+        String xml = xstream.toXML(Categories);
+        //xstream.setMode(XStream.NO_REFERENCES);
+        
         System.out.println(xml);
         Writer writer = null;
         try {
@@ -373,7 +375,7 @@ public class Categorizer {
             br2.close();
         }
         ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
-        //System.out.println(cats2.get(2).get(2).getDescription());
+        System.out.println(cats2.get(0).get(0).getDescription());
     }//End of Main
 
 }
