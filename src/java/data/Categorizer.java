@@ -147,7 +147,7 @@ public class Categorizer {
     private static String cmprExpense;
     private static String cmprAmount;
     
-    private static ArrayList<ArrayList<Expense>> Categories = new ArrayList<ArrayList<Expense>>();
+    private static TreeMap<String, ArrayList<Expense>> Categories = new TreeMap<String, ArrayList<Expense>>();
     //For Printing Purposes
     private static String[] categoryStrings = {"Partying", "Rent", "Restaurant", "Gas", "BankFees",
         "Groceries", "Cash", "Bills", "Misc", "Exersize", "Transportation", "Savings", "Dates", "Fines" };
@@ -210,36 +210,36 @@ public class Categorizer {
         Console c = System.console();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
-        Categories.add(Partying);
-        Categories.add(Rent);
-        Categories.add(Restaurant);
-        Categories.add(Gas);
-        Categories.add(BankFees);
-        Categories.add(Groceries);
-        Categories.add(Cash);
-        Categories.add(Bills);
-        Categories.add(Cash);
-        Categories.add(Bills);
-        Categories.add(Misc);
-        Categories.add(Exersize);
-        Categories.add(Transportation);
-        Categories.add(Savings);
-        Categories.add(Dates);
-        Categories.add(Fines);
-        Partying.add( new Expense("Partying", "0"));
-        Rent.add( new Expense("Rent", "0"));
-        Restaurant.add( new Expense("Restaurant", "0"));
-        Gas.add( new Expense("Gas", "0"));
-        BankFees.add( new Expense("Bank Fees", "0"));
-        Groceries.add( new Expense("Groceries", "0"));
-        Cash.add( new Expense("Cash", "0"));
-        Bills.add( new Expense("Bills", "0"));
-        Misc.add( new Expense("Misc", "0"));
-        Exersize.add( new Expense("Exersize", "0")); 
-        Transportation.add( new Expense("Transportation", "0")); 
-        Savings.add( new Expense("Savings", "0")); 
-        Dates.add( new Expense("Dates", "0")); 
-        Fines.add( new Expense("Fines", "0")); 
+        Categories.put("Partying", Partying);
+        Categories.put("Rent", Rent);
+        Categories.put("Restaurant", Restaurant);
+        Categories.put("Gas", Gas);
+        Categories.put("BankFees", BankFees);
+        Categories.put("Groceries", Groceries);
+        Categories.put("Cash", Cash);
+        Categories.put("Bills", Bills);
+        Categories.put("Cash", Cash);
+        Categories.put("Bills", Bills);
+        Categories.put("Misc", Misc);
+        Categories.put("Exersize", Exersize);
+        Categories.put("Transportation", Transportation);
+        Categories.put("Savings", Savings);
+        Categories.put("Dates", Dates);
+        Categories.put("Fines", Fines);
+        Partying.add( new Expense("Partying", "null"));
+        Rent.add( new Expense("Rent", "null"));
+        Restaurant.add( new Expense("Restaurant", "null"));
+        Gas.add( new Expense("Gas", "null"));
+        BankFees.add( new Expense("Bank Fees", "null"));
+        Groceries.add( new Expense("Groceries", "null"));
+        Cash.add( new Expense("Cash", "null"));
+        Bills.add( new Expense("Bills", "null"));
+        Misc.add( new Expense("Misc", "null"));
+        Exersize.add( new Expense("Exersize", "null")); 
+        Transportation.add( new Expense("Transportation", "null")); 
+        Savings.add( new Expense("Savings", "null")); 
+        Dates.add( new Expense("Dates", "null")); 
+        Fines.add( new Expense("Fines", "null")); 
 
         try{
         Categorizer catClass = new Categorizer();//actually have to make a constructor because above class aint "static"
@@ -276,20 +276,22 @@ public class Categorizer {
         int len = Categories.size();
         
         //System.out.println(SortedArrayList.get(10).getAmount());
-        System.out.println("Categories.size() = " + len );
+        System.out.println("The Map Categories.size() = " + len );
         for(int i=1;i<SortedArrayList.size();i++){
             //Looping through Categories Array
+            //Use Categories Array!
             for(int j=0;j<len;j++){
                 foundMatch=false;
-                int siz = Categories.get(j).size();
-                System.out.println("Categories.get(j).size() = " + siz );
-                //Looping through each expense category
+                int siz = Categories.get(categoryStrings[j]).size();
+                System.out.println("Current Categories length = " + siz );
+                //Looping through individual expense categories (partying, groceries, etc)
                 for(int k=0;k<siz;k++){
+                        System.out.println("K = " + k);
                         //            partying, gas, grocieries
-                        expense = Categories.get(j).get(k).getDescription();//From Known Categories
+                        expense = Categories.get(categoryStrings[j]).get(k).getDescription();//From Known Categories
                         expense2 = SortedArrayList.get(i).getDescription();//From CSV after Sorting Description
                         //now compare the expenses to the amounts
-                        amount = Categories.get(j).get(k).getAmount();//From Known Categories
+                        amount = Categories.get(categoryStrings[j]).get(k).getAmount();//From Known Categories
                         amount2 = SortedArrayList.get(i).getAmount();//From CSV after Sorting Description
                         System.out.println(i + " From Categories Loop: " + expense + ", Amount: " + amount);
                         System.out.println(i + " From CSV File:        " + expense2+ ", Amount: " + amount2); 
@@ -342,11 +344,14 @@ public class Categorizer {
         //System.out.println(Categories.get(2).get(2).getDescription());
         XStream xstream = new XStream();
         xstream.alias("Expense", Expense.class);
-        xstream.alias("Category", List.class);
-        String xml = xstream.toXML(Categories);
-        //xstream.setMode(XStream.NO_REFERENCES);
+        xstream.alias("Category", String.class);
+        xstream.alias("Expenses", List.class);
         
+        //CREATE XML STRING
+        String xml = xstream.toXML(Categories);
         System.out.println(xml);
+        
+        //WRITE TO XML FILE, FROM MAP OF ARRAY LISTS
         Writer writer = null;
         try {
             writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("Categories.xml"), "utf-8"));
@@ -356,8 +361,12 @@ public class Categorizer {
         }finally{
             try{writer.close();} catch(Exception ex) {}
         }
+        
+        //READ FROM XML FILE, TO MAP OF ARRAY LISTS
         String everything;
-        ArrayList<ArrayList<Expense>> cats = (ArrayList<ArrayList<Expense>>)xstream.fromXML(xml);
+        
+        //THIS WAS USING xml STRING WHICH WAS FRESH IN JAVA AS AN ARRAY LIST XML
+        //ArrayList<ArrayList<Expense>> cats = (ArrayList<ArrayList<Expense>>)xstream.fromXML(xml);
         //System.out.println(cats.get(2).get(2).getDescription());//IT WORKS! I can get the info back from the xml
         //Now I just have to make it into a file and load up the file at the begining
         BufferedReader br2 = new BufferedReader(new FileReader("Categories.xml"));
@@ -374,8 +383,10 @@ public class Categorizer {
         } finally {
             br2.close();
         }
-        ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
-        System.out.println(cats2.get(0).get(0).getDescription());
+        //ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
+        TreeMap<String, ArrayList<Expense>> xmlAllDataMap = (TreeMap<String,ArrayList<Expense>>)xstream.fromXML(everything);
+        //Gets the Arraylist Back from the XML File, now iterate to find Amounts for each?
+        System.out.println(xmlAllDataMap.get("Groceries").get(1).getDescription());
     }//End of Main
 
 }
