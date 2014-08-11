@@ -17,6 +17,17 @@ public class Spending {
     private String amount;
     private String balance;
     
+    public Spending(String date, String description, String amount){
+    setDate(date);
+    setDescription(description);
+    setAmount(amount);
+    //System.out.println("from spending object, date = " + date);
+    //System.out.println("from spending object, description = " + description);
+    //System.out.println("from spending object, amount = " + amount);
+    //System.out.println("from spending object, balance = " + balance);
+    
+    }
+    
     public Spending(String date, String description, String amount, String balance){
     setAll(date, description, amount, balance);
     

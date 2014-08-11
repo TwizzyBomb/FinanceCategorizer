@@ -5,10 +5,12 @@
       <Expense>
         <description>Asset</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
       <Expense>
         <description>Online Xfer Transfer from SV 00004789062224</description>
         <amount>25</amount>
+        <date>8/7/2014</date>
       </Expense>
     </Expenses>
   </entry>
@@ -18,10 +20,12 @@
       <Expense>
         <description>Bank Fees</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
       <Expense>
         <description>MAINTENANCE FEE</description>
         <amount>-15</amount>
+        <date>8/7/2014</date>
       </Expense>
     </Expenses>
   </entry>
@@ -31,6 +35,7 @@
       <Expense>
         <description>Bills</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
     </Expenses>
   </entry>
@@ -40,6 +45,7 @@
       <Expense>
         <description>Cash</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
     </Expenses>
   </entry>
@@ -49,6 +55,7 @@
       <Expense>
         <description>Dates</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
     </Expenses>
   </entry>
@@ -58,6 +65,7 @@
       <Expense>
         <description>Exersize</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
     </Expenses>
   </entry>
@@ -67,6 +75,7 @@
       <Expense>
         <description>Fines</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
     </Expenses>
   </entry>
@@ -76,10 +85,12 @@
       <Expense>
         <description>Gas</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
       <Expense>
         <description>GULF OIL 91190990</description>
         <amount>2.65</amount>
+        <date>8/7/2014</date>
       </Expense>
     </Expenses>
   </entry>
@@ -89,6 +100,7 @@
       <Expense>
         <description>Groceries</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
     </Expenses>
   </entry>
@@ -98,6 +110,7 @@
       <Expense>
         <description>Misc</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
     </Expenses>
   </entry>
@@ -107,14 +120,17 @@
       <Expense>
         <description>Partying</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
       <Expense>
         <description>THE FIELD</description>
         <amount>-16</amount>
+        <date>8/7/2014</date>
       </Expense>
       <Expense>
         <description>KRAUSZERS FOOD STORE</description>
         <amount>-19.21</amount>
+        <date>8/7/2014</date>
       </Expense>
     </Expenses>
   </entry>
@@ -124,6 +140,7 @@
       <Expense>
         <description>Rent</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
     </Expenses>
   </entry>
@@ -133,10 +150,12 @@
       <Expense>
         <description>Restaurant</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
       <Expense>
         <description>VILLAGE BAGELS FAIRFIELD</description>
         <amount>-5.84</amount>
+        <date>8/7/2014</date>
       </Expense>
     </Expenses>
   </entry>
@@ -146,6 +165,7 @@
       <Expense>
         <description>Savings</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
     </Expenses>
   </entry>
@@ -155,6 +175,7 @@
       <Expense>
         <description>Transportation</description>
         <amount>null</amount>
+        <date>1/1/1970</date>
       </Expense>
     </Expenses>
   </entry>

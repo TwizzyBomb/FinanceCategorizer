@@ -5,14 +5,15 @@
  */
 
 package data;
+import com.thoughtworks.xstream.*;
 import java.io.*;
 import java.io.Console;
+import java.text.*;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.*;
-import com.thoughtworks.xstream.*;
 /**
  *
  * @author User
@@ -158,50 +159,63 @@ public class Categorizer {
         //Switch Statement that sorts the object into the correct category
         switch (category) {
             case "Partying":
+                System.out.println("Accepted Input, Partying Expense Added");
                 Partying.add(expense);
                 break;
             case "Rent":
+                System.out.println("Accepted Input, Rent Expense Added");
                 Rent.add(expense);
                 break;
             case "Restaurant":
+                System.out.println("Accepted Input, Restaurant Expense Added");
                 Rent.add(expense);
                 break;
             case "Gas":
+                System.out.println("Accepted Input, Gas Expense Added");
                 Gas.add(expense);
                 break;
             case "BankFees":
+                System.out.println("Accepted Input, Bank Fees Asset Added");
                 BankFees.add(expense);
                 break;
             case "Groceries":
+                System.out.println("Accepted Input, Groceries Expense Added");
                 Groceries.add(expense);
                 break;
             case "Cash":
+                System.out.println("Accepted Input, Cash Expense Added");
                 Cash.add(expense);
                 break;
             case "Bills":
+                System.out.println("Accepted Input, Expense Added");
                 Bills.add(expense);
                 break;
             case "Misc":
+                System.out.println("Accepted Input, Misc Expense Added");
                 Misc.add(expense);
                 break;
             case "Exersize":
+                System.out.println("Accepted Input, Exersize Expense Added");
                 Exersize.add(expense);
                 break;
             case "Transportation":
+                System.out.println("Accepted Input, Transportation Expense Added");
                 Transportation.add(expense);
                 break;
             case "Savings":
+                System.out.println("Accepted Input, Good Job! Keep Saving!");
                 Savings.add(expense);
                 break;
             case "Dates":
+                System.out.println("Accepted Input, I hope your date went well!");
                 Dates.add(expense);
                 break;
             case "Fines":
-                System.out.println("Accepted Input, Expense Added");
+                System.out.println("Accepted Input, Fine Added. You've been a bad boy!");
                 Fines.add(expense);
                 break;
             case "Asset":
-                System.out.println("Accepted Input, Expense Added");
+                System.out.println("Accepted Input, Asset Added");
                 Asset.add(expense);
                 break;                
             default: System.out.println("Not A valid Entry, Nothing added");
@@ -210,10 +224,11 @@ public class Categorizer {
     
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //If I wanted to print out the full string for each entry I could return full description and do the strippng in sorter
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException{
         //For user input
         Console c = System.console();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        SimpleDateFormat df = new SimpleDateFormat("M/d/yyyy");
         
         Categories.put("Partying", Partying);
         Categories.put("Rent", Rent);
@@ -232,27 +247,27 @@ public class Categorizer {
         Categories.put("Dates", Dates);
         Categories.put("Fines", Fines);
         Categories.put("Asset", Asset);
-        Partying.add( new Expense("Partying", "null"));
-        Partying.add( new Expense("THE FIELD", "-16"));
-        Partying.add( new Expense("KRAUSZERS FOOD STORE", "-19.21"));
-        Rent.add( new Expense("Rent", "null"));
-        Restaurant.add( new Expense("Restaurant", "null"));
-        Restaurant.add( new Expense("VILLAGE BAGELS FAIRFIELD", "-5.84"));
-        Gas.add( new Expense("Gas", "null"));
-        Gas.add( new Expense("GULF OIL 91190990", "2.65"));//SHOW AMOUNTS WITH THE QUESTIONS BECAUSE EVERYMORNINGS BREAKFAST SHOULD COUNT AS GROCERIES
-        BankFees.add( new Expense("Bank Fees", "null"));
-        BankFees.add( new Expense("MAINTENANCE FEE", "-15"));
-        Groceries.add( new Expense("Groceries", "null"));
-        Cash.add( new Expense("Cash", "null"));
-        Bills.add( new Expense("Bills", "null"));
-        Misc.add( new Expense("Misc", "null"));
-        Exersize.add( new Expense("Exersize", "null")); 
-        Transportation.add( new Expense("Transportation", "null")); 
-        Savings.add( new Expense("Savings", "null")); 
-        Dates.add( new Expense("Dates", "null")); 
-        Fines.add( new Expense("Fines", "null")); 
-        Asset.add( new Expense("Asset", "null"));
-        Asset.add( new Expense("Online Xfer Transfer from SV 00004789062224", "25")); 
+        Partying.add( new Expense("Partying", "null", "1/1/1970"));
+        Partying.add( new Expense("THE FIELD", "-16", "8/7/2014"));
+        Partying.add( new Expense("KRAUSZERS FOOD STORE", "-19.21", "8/7/2014"));
+        Rent.add( new Expense("Rent", "null", "1/1/1970"));
+        Restaurant.add( new Expense("Restaurant", "null", "1/1/1970"));
+        Restaurant.add( new Expense("VILLAGE BAGELS FAIRFIELD", "-5.84", "8/7/2014"));
+        Gas.add( new Expense("Gas", "null", "1/1/1970"));
+        Gas.add( new Expense("GULF OIL 91190990", "2.65", "8/7/2014"));//SHOW AMOUNTS WITH THE QUESTIONS BECAUSE EVERYMORNINGS BREAKFAST SHOULD COUNT AS GROCERIES
+        BankFees.add( new Expense("Bank Fees", "null", "1/1/1970"));
+        BankFees.add( new Expense("MAINTENANCE FEE", "-15", "8/7/2014"));
+        Groceries.add( new Expense("Groceries", "null", "1/1/1970"));
+        Cash.add( new Expense("Cash", "null", "1/1/1970"));
+        Bills.add( new Expense("Bills", "null", "1/1/1970"));
+        Misc.add( new Expense("Misc", "null", "1/1/1970"));
+        Exersize.add( new Expense("Exersize", "null", "1/1/1970")); 
+        Transportation.add( new Expense("Transportation", "null", "1/1/1970")); 
+        Savings.add( new Expense("Savings", "null", "1/1/1970")); 
+        Dates.add( new Expense("Dates", "null", "1/1/1970")); 
+        Fines.add( new Expense("Fines", "null", "1/1/1970")); 
+        Asset.add( new Expense("Asset", "null", "1/1/1970"));
+        Asset.add( new Expense("Online Xfer Transfer from SV 00004789062224", "25", "8/7/2014")); 
         
         try{
         Categorizer catClass = new Categorizer();//actually have to make a constructor because above class aint "static"
@@ -265,16 +280,18 @@ public class Categorizer {
         for(int i=0;i<length;i++){
             String description = arr.get(i).getDescription();//calls each objects getDescription()
             String amount = arr.get(i).getAmount();//calls each objects getAmount
+            String date = arr.get(i).getDate();
             //System.out.println("From Main Class: ");
             //System.out.println(description);
             String expenseItem = Sorter(description);
-
+            //System.out.println(date);
+            
             
             // Plug them into expense, and their corresponding Array Lists here
             
             //WHAT IF I PLUG THE CATEGORIES IN WITH A LOOP?
             //Putting sorted 
-            SortedArrayList.add( new Expense(expenseItem ,amount) );
+            SortedArrayList.add( new Expense(expenseItem , amount, date) );
             
             //System.out.println("#" + i + " " + SortedArrayList.get(i).getDescription() + " Amount: " + SortedArrayList.get(i).getAmount());
             
@@ -289,17 +306,17 @@ public class Categorizer {
         int len = Categories.size();
         
         //System.out.println(SortedArrayList.get(10).getAmount());
-        System.out.println("The Map Categories.size() = " + len );
+        System.out.println("The Map Categories.size() = " + len );//Need to figure out how many iterations to loop categories AND 
         for(int i=1;i<SortedArrayList.size();i++){
             //Looping through Categories Array
             //Use Categories Array!
             for(int j=0;j<len;j++){
                 foundMatch = false;
-                int siz = Categories.get(categoryStrings[j]).size();
-                System.out.println("Current Categories length = " + siz );
+                int currCatSiz = Categories.get(categoryStrings[j]).size();
+                System.out.println("Current Categories length = " + currCatSiz );
                 //Looping through individual expense categories (partying, groceries, etc)
-                for(int k=0;k<siz;k++){
-                        System.out.println("K = " + k);
+                for(int k=0;k<currCatSiz;k++){
+                        System.out.println("current record from within category = " + k);
                         //            partying, gas, grocieries
                         expense = Categories.get(categoryStrings[j]).get(k).getDescription();//From Known Categories
                         expense2 = SortedArrayList.get(i).getDescription();//From CSV after Sorting Description
@@ -310,7 +327,7 @@ public class Categorizer {
                         System.out.println(i + " From CSV File:        " + expense2+ ", Amount: " + amount2); 
                         //check if category exists
                         if(expense.equals(expense2)){//MATCH FOUND, IS IN CATEGORY?
-                            System.out.println("  !! Found !! " + expense + " At Index " + i + ")");
+                            System.out.println("  !! Found !! " + expense + " At Index " + j + ")");
                             foundMatch = true;
                             System.out.println("foundMatch = " + foundMatch);
                             cmprExpense = expense;
@@ -327,7 +344,7 @@ public class Categorizer {
                         //Say "NOT FOUND" add to category?
                         
                 }//End of Inner Category Loop
-                    if(j==(len-1) && foundMatch==true){//NO MATCH FOUND, ADD TO PROPER CATEGORY. Get user input here...
+                    if(foundMatch==true){//MATCH FOUND, ADD TO PROPER CATEGORY. Get user input here...
                     System.out.println("  !! Match Found !! " + expense2 + " At Index " + i + ")");
                     System.out.println(" Add " + expense2 + " with amount " + amount2 + " to a Category?");
                     System.out.println(" Compare to " + cmprExpense + " with amount " + cmprAmount);
@@ -400,7 +417,7 @@ public class Categorizer {
         //ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
         TreeMap<String, ArrayList<Expense>> xmlAllDataMap = (TreeMap<String,ArrayList<Expense>>)xstream.fromXML(everything);
         //Gets the Arraylist Back from the XML File, now iterate to find Amounts for each?
-        System.out.println(xmlAllDataMap.get("Groceries").get(1).getDescription());
+        System.out.println(xmlAllDataMap.get("Groceries").get(0).getDescription());
     }//End of Main
 
 }

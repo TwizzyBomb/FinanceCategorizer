@@ -6,6 +6,8 @@
 
 package data;
 
+import java.util.Date;
+
 /**
  *
  * @author User
@@ -13,14 +15,17 @@ package data;
 public class Expense {
     private String description;
     private String amount;
+    private String date;
     
-    public Expense(String description, String amount) {
-        setAll(description, amount);
+    
+    public Expense(String description, String amount, String date) {
+        setAll(description, amount, date);
     }
     
-    public void setAll(String desc, String amt){
+    public void setAll(String desc, String amt, String date){
     setDescription(desc);
     setAmount(amt);
+    setDate(date);
     }
 
     public String getDescription() {
@@ -37,6 +42,14 @@ public class Expense {
 
     public void setAmount(String amount) {
         this.amount = amount;
+    }
+    
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
     
     
