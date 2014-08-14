@@ -18,6 +18,7 @@ public class Spending {
     private String balance;
     
     public Spending(String date, String description, String amount){
+    amount = amount.replace("\"", "");
     setDate(date);
     setDescription(description);
     setAmount(amount);

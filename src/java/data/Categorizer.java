@@ -20,7 +20,7 @@ import java.util.regex.*;
  */
 public class Categorizer {
 
-    static String tempFilePath = "C:\\Users\\User\\Downloads\\csvdownload.csv";
+    static String tempFilePath = "C:\\Users\\User\\Downloads\\csvdownload4.csv";
 
     //Eventually used to hold a lines worth of data from the CSV file
     static String fileName;//used in Buffered reader conditional which builds arrays
@@ -141,6 +141,7 @@ public class Categorizer {
     private static ArrayList<Expense> Dates = new ArrayList<Expense>();
     private static ArrayList<Expense> Fines = new ArrayList<Expense>();
     private static ArrayList<Expense> Asset = new ArrayList<Expense>();
+    private static ArrayList<Expense> Convenience = new ArrayList<Expense>();
     //for matching
     private static boolean foundMatch =false;
     private static String expense;
@@ -156,7 +157,7 @@ public class Categorizer {
     private static TreeMap<String, ArrayList<Expense>> Categories = new TreeMap<String, ArrayList<Expense>>();
     //For Printing Purposes
     private static String[] categoryStrings = {"Partying", "Rent", "Restaurant", "Gas", "BankFees",
-        "Groceries", "Cash", "Bills", "Misc", "Exersize", "Transportation", "Savings", "Dates", "Fines", "Asset" };
+        "Groceries", "Cash", "Bills", "Misc", "Exersize", "Transportation", "Savings", "Dates", "Fines", "Asset", "Convenience" };
     
     
     private static void addToCorrectCategory(String category, Expense expense){
@@ -221,7 +222,11 @@ public class Categorizer {
             case "Asset":
                 System.out.println("Accepted Input, Asset Added");
                 Asset.add(expense);
-                break;                
+                break;
+            case "Convenience":
+                System.out.println("Accepted Input, Asset Added");
+                Convenience.add(expense);
+                break;  
             default: System.out.println("Not A valid Entry, Nothing added");
         }
     }
@@ -233,15 +238,13 @@ public class Categorizer {
         Console c = System.console();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         SimpleDateFormat df = new SimpleDateFormat("M/d/yyyy");
-        
+        //Maps remove duplicates?? you had two entries for bills and it reported the size as only the individuals
         Categories.put("Partying", Partying);
         Categories.put("Rent", Rent);
         Categories.put("Restaurant", Restaurant);
         Categories.put("Gas", Gas);
         Categories.put("BankFees", BankFees);
         Categories.put("Groceries", Groceries);
-        Categories.put("Cash", Cash);
-        Categories.put("Bills", Bills);
         Categories.put("Cash", Cash);
         Categories.put("Bills", Bills);
         Categories.put("Misc", Misc);
@@ -251,6 +254,7 @@ public class Categorizer {
         Categories.put("Dates", Dates);
         Categories.put("Fines", Fines);
         Categories.put("Asset", Asset);
+        Categories.put("Convenience", Convenience);
         Partying.add( new Expense("Partying", "null", "1/1/1970"));
         Partying.add( new Expense("THE FIELD", "-16", "8/7/2014"));
         Partying.add( new Expense("KRAUSZERS FOOD STORE", "-19.21", "8/7/2014"));
@@ -271,7 +275,7 @@ public class Categorizer {
         Dates.add( new Expense("Dates", "null", "1/1/1970")); 
         Fines.add( new Expense("Fines", "null", "1/1/1970")); 
         Asset.add( new Expense("Asset", "null", "1/1/1970"));
-        Asset.add( new Expense("Online Xfer Transfer from SV 00004789062224", "25", "8/7/2014")); 
+        Convenience.add( new Expense("FRIENDLY", "-4.58" , "08/13/14"));
         
         //I ACTUALLY HAVE TO MAKE A CONSTRUCTOR FOR A FUNCTION WITHIN THIS CLASS BECAUSE RECENT SPENDING ISN'T STATIC
         //Try catch because recent spending throws IO and FileNotFound exceptions
@@ -290,8 +294,8 @@ public class Categorizer {
             //System.out.println(description);
             String expenseItem = Sorter(description);
             //System.out.println(date);
-            //Putting sorted 
-            SortedArrayList.add( new Expense(expenseItem , amount, date) );
+            //Putting sorted And getting rid of pesky quotes
+            SortedArrayList.add( new Expense(expenseItem.replace("\"", "") , amount.replace("\"", ""), date.replace("\"", "")) );
             //System.out.println("#" + i + " " + SortedArrayList.get(i).getDescription() + " Amount: " + SortedArrayList.get(i).getAmount());
             }//END OF "CREATING SortedArrayList" LOOP
         }catch(IOException i){
@@ -301,20 +305,21 @@ public class Categorizer {
         
         
         
-        int len = Categories.size();
-        System.out.println("Line Number from CSV file = " + lineNumber );
+        int allCategoriesSize = Categories.size();
+        System.out.println("Line Numbers from CSV file = " + lineNumber );
         //System.out.println(SortedArrayList.get(10).getAmount());
-        System.out.println("The Map Categories.size() = " + len );//Need to figure out how many iterations to loop categories AND
+        System.out.println("The Map Categories.size() = " + allCategoriesSize );//Need to figure out how many iterations to loop categories AND
         for(int i=1;i<SortedArrayList.size();i++){
+            System.out.println("At start of new entry, foundMatch = " + foundMatch);
             //Looping through Categories Array
-            for(int j=0;j<len;j++){
+            for(int j=0;j<allCategoriesSize;j++){
                 foundMatch = false;
                 int currCatSiz = Categories.get(categoryStrings[j]).size();
-                System.out.println("Current Categories length = " + currCatSiz );
-                //Looping through individual expense categories (partying, groceries, etc)
-                for(int k=0;k<currCatSiz;k++){
-                        //System.out.println("Current Category = " + Categories.floorKey(categoryStrings[i]) );
-                        System.out.println("current record from within category = " + k);
+                System.out.println(j + " Current Category: " + categoryStrings[j] + ", length = " + currCatSiz );
+                for(int k=0;k<currCatSiz;k++){//Looping through individual expense categories (partying, groceries, etc)
+                            //trying to get the current category to display
+                            //System.out.println("Current Category = " + Categories.floorKey(categoryStrings[i]) );
+                            //System.out.println("current record from within category = " + k);
                         //            partying, gas, grocieries
                         expense = Categories.get(categoryStrings[j]).get(k).getDescription();//From Known Categories
                         expense2 = SortedArrayList.get(i).getDescription();//From CSV after Sorting Description
@@ -323,6 +328,7 @@ public class Categorizer {
                         //now compare the expenses to the amounts
                         amount = Categories.get(categoryStrings[j]).get(k).getAmount();//From Known Categories
                         amount2 = SortedArrayList.get(i).getAmount();//From CSV after Sorting Description
+                        //amount2 = amount2.replace("\"", "");
                         System.out.println(i + " From Categories Loop: " + expense + ", Amount: " + amount + " At " + date);
                         System.out.println(i + " From CSV File:        " + expense2+ ", Amount: " + amount2 + " At " + date2); 
                         //STRING COMPARISON HERE
@@ -339,19 +345,20 @@ public class Categorizer {
                             }else if(!expense.equals(expense2)){
                                 System.out.println("Not a match");
                             }
-                        //IN THE FINAL VERSION YOU NEED TO RELOAD THE WHOLE LIST AFTER ANYTHING GETS ADDED TO AVOID DUPLICATES
-                    }//End of Inner Category Loop
+                    //IN THE FINAL VERSION YOU NEED TO RELOAD THE WHOLE LIST AFTER ANYTHING GETS ADDED TO AVOID DUPLICATES
+                    }//End of Inner INDIVIDUAL Category Loop
                     if(foundMatch==true){//MATCH FOUND, ADD TO PROPER CATEGORY or ASK USER WHAT TO DO
                         if(expense2.equals(cmprExpense) && amount2.equals(cmprAmount) && date2.equals(cmprDate)){
                         //ALREADY EXISTS IN CURRENT LIST OF EXPENSES, BREAK LOOP AND MOVE ON
+                            //(not necessarily, I buy 2 tacitos for 2.13 from gulf oil all the time)
                         System.out.println("ALREADY EXISTS IN CURRENT LIST OF EXPENSES, BREAKING LOOP AND MOVING ON");
                         break;
                         }
                         //One of the three comparisions returned false, add to category
                         else{//Get user input here...
-                        System.out.println("  !! Match Found !! " + expense2 + " At Category Number " + (i+1) + ")");
-                        System.out.println(" Add " + expense2 + " with amount " + amount2 + " at date " + date2 +" to a Category?");
-                        System.out.println(" Compare to " + cmprExpense + " with amount " + cmprAmount + " at date: " + cmprDate);
+                        System.out.println("  !! Match Found !! " + expense2 + " in Category: " + categoryStrings[j]);
+                        System.out.println(" In DB " + cmprExpense + " with amount " + cmprAmount + " at date: " + cmprDate);
+                        System.out.println(" Add   " + expense2 + " with amount " + amount2 + " at date " + date2 +" to a Category?");
                         System.out.println(" Y/N ");
                         //Attempts to get input from the user
                         String YNinput = br.readLine();
@@ -366,16 +373,45 @@ public class Categorizer {
                                 String ctgry = br.readLine();
                                 addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
                                 System.out.println(" Accepted Input! ");
-
+                                //Attempts to break out of Current CSV record loop since match was found and dealt with
+                                break;
                             }else if(YNinput.equals("n") || YNinput.equals("N")){
                                 System.out.println("not added");
+                                //Attempts to break out of Current CSV record loop since match was found and dealt with
+                                break;
                             }else{
                                 System.out.println("don't recognize input..moving on");
+                                //Attempts to break out of Current CSV record loop since match was found and dealt with
+                                break;
                             }
                         }
-                }/*End of FoundMatch=true conditional*/
+                    }
+                }   //Iterated through all categories' entries
+                if(foundMatch==false){//NO MATCH FOUND, ASK USER TO ADD TO CATEGORY
+                    System.out.println(" Entry " + expense2 + " is not in any categories,");
+                    System.out.println(" Add " + expense2 + " with amount " + amount2 + " at date " + date2 + " to a Category?");
+                    System.out.println(" Y/N");
+                    //Attempts to get input from the user
+                    String YNinput = br.readLine();
+
+                    System.out.println("you said: " + YNinput);
+                        if(YNinput.equals("y") || YNinput.equals("Y")){
+                            //Put in category
+                            System.out.println(" Add to the correct category from the List: ");
+                            for(int l=0;l<categoryStrings.length;l++){
+                                System.out.println(categoryStrings[l]);
+                            }
+                            String ctgry = br.readLine();
+                            addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
+                            System.out.println(" Accepted Input! ");
+
+                        }else if(YNinput.equals("n") || YNinput.equals("N")){
+                            System.out.println("not added");
+                        }else{
+                            System.out.println("don't recognize input..moving on");
+                        }
+                }//End of foundMatch=false conditional
             }//End of Outer Category Loop
-        }//End of SortedArrayList Loop
         //System.out.println(Categories.get(2).get(2).getDescription());
         XStream xstream = new XStream();
         xstream.alias("Expense", Expense.class);
