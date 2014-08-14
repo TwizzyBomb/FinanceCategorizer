@@ -234,11 +234,8 @@ public class Categorizer {
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //If I wanted to print out the full string for each entry I could return full description and do the strippng in sorter
     public static void main(String[] args) throws IOException, ParseException{
-        //For user input
-        Console c = System.console();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        SimpleDateFormat df = new SimpleDateFormat("M/d/yyyy");
-        //Maps remove duplicates?? you had two entries for bills and it reported the size as only the individuals
+        //Maps remove duplicates!! you had two entries for bills and it reported the size as only the individuals
         Categories.put("Partying", Partying);
         Categories.put("Rent", Rent);
         Categories.put("Restaurant", Restaurant);
@@ -275,6 +272,7 @@ public class Categorizer {
         Dates.add( new Expense("Dates", "null", "1/1/1970")); 
         Fines.add( new Expense("Fines", "null", "1/1/1970")); 
         Asset.add( new Expense("Asset", "null", "1/1/1970"));
+        Convenience.add( new Expense("Convenience", "null" , "1/1/1970"));
         Convenience.add( new Expense("FRIENDLY", "-4.58" , "08/13/14"));
         
         //I ACTUALLY HAVE TO MAKE A CONSTRUCTOR FOR A FUNCTION WITHIN THIS CLASS BECAUSE RECENT SPENDING ISN'T STATIC
@@ -282,7 +280,9 @@ public class Categorizer {
         try{
         Categorizer catClass = new Categorizer();
         ArrayList<Spending> arr = new ArrayList();//declare array list of type Spending Object
+        //Arr is an array list of Spending Objects from the CSV file Unsorted
         arr = catClass.RecentSpending();//create an instance of Recent spending object called arr
+        System.out.println(arr);
         
         
         //THIS IS WHERE I PLUG IN THE VALUES OF SortedArrayList FROM SORTER
@@ -456,8 +456,22 @@ public class Categorizer {
         }
         //ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
         TreeMap<String, ArrayList<Expense>> xmlAllDataMap = (TreeMap<String,ArrayList<Expense>>)xstream.fromXML(everything);
-        //Gets the Arraylist Back from the XML File, now iterate to find Amounts for each?
-        System.out.println(xmlAllDataMap.get("Partying").get(2).getDescription());
+        //Gets the Arraylist Back from the XML File, now iterate to print Amounts for each?
+        for(int m = 0; m<categoryStrings.length; m++){
+            System.out.println("Category = " + categoryStrings[m]);
+            double total = 0.0;
+            for(int n = 0; n < xmlAllDataMap.get(categoryStrings[m]).size(); n++){
+                String dsc = xmlAllDataMap.get(categoryStrings[m]).get(n).getDescription();
+                String amt = xmlAllDataMap.get(categoryStrings[m]).get(n).getAmount();
+                if(!amt.equals("null")){
+                    double amtValue = Double.parseDouble(amt);
+                    System.out.println("  Description " + (m+n) + " " + dsc);
+                    System.out.println("  Amount " + (m+n) + " " + amtValue);
+                    total+=amtValue;
+                }
+            }
+            System.out.println(total);
+        }
     }//End of Main
 
 }

@@ -7,11 +7,6 @@
         <amount>null</amount>
         <date>1/1/1970</date>
       </Expense>
-      <Expense>
-        <description>Online Xfer Transfer from SV 00004789062224</description>
-        <amount>25</amount>
-        <date>8/7/2014</date>
-      </Expense>
     </Expenses>
   </entry>
   <entry>
@@ -26,11 +21,6 @@
         <description>MAINTENANCE FEE</description>
         <amount>-15</amount>
         <date>8/7/2014</date>
-      </Expense>
-      <Expense>
-        <description>NONTD ATM FEE</description>
-        <amount>-3.00</amount>
-        <date>08/11/14</date>
       </Expense>
     </Expenses>
   </entry>
@@ -58,24 +48,14 @@
     <Category>Convenience</Category>
     <Expenses>
       <Expense>
+        <description>Convenience</description>
+        <amount>null</amount>
+        <date>1/1/1970</date>
+      </Expense>
+      <Expense>
         <description>FRIENDLY</description>
         <amount>-4.58</amount>
         <date>08/13/14</date>
-      </Expense>
-      <Expense>
-        <description>GULF OIL 91190990</description>
-        <amount>-5.02</amount>
-        <date>08/13/14</date>
-      </Expense>
-      <Expense>
-        <description>GULF OIL 91190990</description>
-        <amount>-2.13</amount>
-        <date>08/12/14</date>
-      </Expense>
-      <Expense>
-        <description>SHELL SERVICE STATION</description>
-        <amount>-4.24</amount>
-        <date>08/11/14</date>
       </Expense>
     </Expenses>
   </entry>
@@ -132,16 +112,6 @@
         <amount>null</amount>
         <date>1/1/1970</date>
       </Expense>
-      <Expense>
-        <description>TRADER JOE S  529 QPS</description>
-        <amount>-81.39</amount>
-        <date>08/13/14</date>
-      </Expense>
-      <Expense>
-        <description>SUPER STOP</description>
-        <amount>-83.63</amount>
-        <date>08/13/14</date>
-      </Expense>
     </Expenses>
   </entry>
   <entry>
@@ -172,11 +142,6 @@
         <amount>-19.21</amount>
         <date>8/7/2014</date>
       </Expense>
-      <Expense>
-        <description>PORT CHESTER VALERO</description>
-        <amount>-2.00</amount>
-        <date>08/11/14</date>
-      </Expense>
     </Expenses>
   </entry>
   <entry>
@@ -186,16 +151,6 @@
         <description>Rent</description>
         <amount>null</amount>
         <date>1/1/1970</date>
-      </Expense>
-      <Expense>
-        <description>VILLAGE BAGELS FAIRFIELD</description>
-        <amount>-8.23</amount>
-        <date>08/13/14</date>
-      </Expense>
-      <Expense>
-        <description>TAI JIANG</description>
-        <amount>-14.73</amount>
-        <date>08/12/14</date>
       </Expense>
     </Expenses>
   </entry>
@@ -231,11 +186,6 @@
         <description>Transportation</description>
         <amount>null</amount>
         <date>1/1/1970</date>
-      </Expense>
-      <Expense>
-        <description>NST METRO NORTH TVM460</description>
-        <amount>-2.50</amount>
-        <date>08/12/14</date>
       </Expense>
     </Expenses>
   </entry>
