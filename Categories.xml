@@ -89,7 +89,7 @@
       </Expense>
       <Expense>
         <description>GULF OIL 91190990</description>
-        <amount>2.65</amount>
+        <amount>-2.65</amount>
         <date>8/7/2014</date>
       </Expense>
     </Expenses>

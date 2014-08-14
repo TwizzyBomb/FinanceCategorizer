@@ -45,3 +45,25 @@
         System.out.println("Set values: " + set);
 
 output: Set values: [Groceries=BEDBATH BEYOND BEDBATH, PARTYING=WAREHOUSE WINES LIQU]
+
+
+//asks the user what to do with a match found this code is bugging me out cus I dont wana delete it
+
+
+                    System.out.println("  !! Match Found !! " + expense2 + " At Category Number " + (i+1) + ")");
+                    System.out.println(" Add " + expense2 + " with amount " + amount2 + " at date " + date2 +" to a Category?");
+                    System.out.println(" Compare to " + cmprExpense + " with amount " + cmprAmount + " at date: " + cmprDate);
+                    System.out.println(" Y/N ");
+                    //Attempts to get input from the user
+                    String YNinput = br.readLine();
+
+                    System.out.println("you said: " + YNinput);
+                    if(YNinput.equals("y") || YNinput.equals("Y")){
+                        //Put in category
+                        System.out.println(" Add to the correct category from the List: ");
+                        for(int l=0;l<categoryStrings.length;l++){
+                            System.out.println(categoryStrings[l]);
+                        }
+                        String ctgry = br.readLine();
+                        addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
+                        System.out.println(" Accepted Input! ");
