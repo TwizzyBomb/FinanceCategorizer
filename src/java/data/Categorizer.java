@@ -20,7 +20,7 @@ import java.util.regex.*;
  */
 public class Categorizer {
 
-    static String tempFilePath = "C:\\Users\\User\\Downloads\\csvdownload4.csv";
+    static String tempFilePath = "C:\\Users\\User\\Downloads\\csvdownload.csv";
 
     //Eventually used to hold a lines worth of data from the CSV file
     static String fileName;//used in Buffered reader conditional which builds arrays
@@ -173,7 +173,7 @@ public class Categorizer {
                 break;
             case "Restaurant":
                 System.out.println("Accepted Input, Restaurant Expense Added");
-                Rent.add(expense);
+                Restaurant.add(expense);
                 break;
             case "Gas":
                 System.out.println("Accepted Input, Gas Expense Added");
