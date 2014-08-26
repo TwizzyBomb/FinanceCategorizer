@@ -9,6 +9,11 @@
       </Expense>
       <Expense>
         <description>IBASE OF FAIRFIE QUICKBOOKS</description>
+        <amount>936.02</amount>
+        <date>08/22/14</date>
+      </Expense>
+      <Expense>
+        <description>IBASE OF FAIRFIE QUICKBOOKS</description>
         <amount>912.39</amount>
         <date>08/08/14</date>
       </Expense>
@@ -28,11 +33,6 @@
         <date>7/11/2014</date>
       </Expense>
       <Expense>
-        <description>Online Xfer Transfer from SV 00004789062224</description>
-        <amount>100</amount>
-        <date>7/8/2014</date>
-      </Expense>
-      <Expense>
         <description>IBASE OF FAIRFIE QUICKBOOKS</description>
         <amount>946.52</amount>
         <date>6/27/2014</date>
@@ -41,11 +41,6 @@
         <description>IBASE OF FAIRFIE QUICKBOOKS</description>
         <amount>946.52</amount>
         <date>6/13/2014</date>
-      </Expense>
-      <Expense>
-        <description>1625 SUMMER STREET</description>
-        <amount>50</amount>
-        <date>6/10/2014</date>
       </Expense>
       <Expense>
         <description>IBASE OF FAIRFIE QUICKBOOKS</description>
@@ -68,14 +63,14 @@
         <date>1/1/1970</date>
       </Expense>
       <Expense>
-        <description>MAINTENANCE FEE</description>
-        <amount>-15</amount>
-        <date>8/7/2014</date>
-      </Expense>
-      <Expense>
         <description>NONTD ATM FEE</description>
         <amount>-3.00</amount>
         <date>08/11/14</date>
+      </Expense>
+      <Expense>
+        <description>MAINTENANCE FEE</description>
+        <amount>-15</amount>
+        <date>8/7/2014</date>
       </Expense>
       <Expense>
         <description>NONTD ATM FEE</description>
@@ -96,11 +91,6 @@
         <description>NONTD ATM FEE</description>
         <amount>-3</amount>
         <date>6/16/2014</date>
-      </Expense>
-      <Expense>
-        <description>BROAD</description>
-        <amount>-1</amount>
-        <date>5/22/2014</date>
       </Expense>
       <Expense>
         <description>NONTD ATM FEE</description>
@@ -127,6 +117,16 @@
         <amount>null</amount>
         <date>1/1/1970</date>
       </Expense>
+      <Expense>
+        <description>CHECK # 1</description>
+        <amount>-218.98</amount>
+        <date>08/15/14</date>
+      </Expense>
+      <Expense>
+        <description>CHECK # 31</description>
+        <amount>-100.00</amount>
+        <date>08/11/14</date>
+      </Expense>
     </Expenses>
   </entry>
   <entry>
@@ -137,6 +137,101 @@
         <amount>null</amount>
         <date>1/1/1970</date>
       </Expense>
+      <Expense>
+        <description>1643 POST RD</description>
+        <amount>-120.00</amount>
+        <date>08/25/14</date>
+      </Expense>
+      <Expense>
+        <description>DEBIT</description>
+        <amount>-60.00</amount>
+        <date>08/15/14</date>
+      </Expense>
+      <Expense>
+        <description>DEBIT</description>
+        <amount>-80</amount>
+        <date>8/7/2014</date>
+      </Expense>
+      <Expense>
+        <description>DEBIT</description>
+        <amount>-300</amount>
+        <date>8/4/2014</date>
+      </Expense>
+      <Expense>
+        <description>1625 SUMMER STREET</description>
+        <amount>-100</amount>
+        <date>7/21/2014</date>
+      </Expense>
+      <Expense>
+        <description>209 ATLANTIC ST</description>
+        <amount>-62</amount>
+        <date>7/17/2014</date>
+      </Expense>
+      <Expense>
+        <description>1625 SUMMER STREET</description>
+        <amount>-100</amount>
+        <date>7/14/2014</date>
+      </Expense>
+      <Expense>
+        <description>1625 SUMMER STREET</description>
+        <amount>-60</amount>
+        <date>7/7/2014</date>
+      </Expense>
+      <Expense>
+        <description>DEBIT</description>
+        <amount>-45</amount>
+        <date>7/1/2014</date>
+      </Expense>
+      <Expense>
+        <description>1625 SUMMER STREET</description>
+        <amount>-40</amount>
+        <date>6/25/2014</date>
+      </Expense>
+      <Expense>
+        <description>1643 POST RD</description>
+        <amount>-120</amount>
+        <date>6/25/2014</date>
+      </Expense>
+      <Expense>
+        <description>RITE AID CORP</description>
+        <amount>-46.38</amount>
+        <date>6/16/2014</date>
+      </Expense>
+      <Expense>
+        <description>243 WEST AVENUE</description>
+        <amount>-102.25</amount>
+        <date>6/16/2014</date>
+      </Expense>
+      <Expense>
+        <description>939 HIGH RIDGE ROA</description>
+        <amount>-122</amount>
+        <date>6/16/2014</date>
+      </Expense>
+      <Expense>
+        <description>1643 POST RD</description>
+        <amount>-140</amount>
+        <date>6/16/2014</date>
+      </Expense>
+      <Expense>
+        <description>1625 SUMMER STREET</description>
+        <amount>-40</amount>
+        <date>6/10/2014</date>
+      </Expense>
+      <Expense>
+        <description>1625 SUMMER STREET</description>
+        <amount>50</amount>
+        <date>6/10/2014</date>
+      </Expense>
+      <Expense>
+        <description>939 HIGH RIDGE ROA</description>
+        <amount>-122</amount>
+        <date>5/16/2014</date>
+      </Expense>
+      <Expense>
+        <description>DEBIT</description>
+        <amount>-20</amount>
+        <date>5/9/2014</date>
+      </Expense>
     </Expenses>
   </entry>
   <entry>
@@ -146,6 +241,31 @@
         <description>Convenience</description>
         <amount>null</amount>
         <date>1/1/1970</date>
+      </Expense>
+      <Expense>
+        <description>GULF OIL 91190990</description>
+        <amount>-7.14</amount>
+        <date>08/25/14</date>
+      </Expense>
+      <Expense>
+        <description>GULF OIL 91190990</description>
+        <amount>-2.13</amount>
+        <date>08/18/14</date>
+      </Expense>
+      <Expense>
+        <description>WAWA 159</description>
+        <amount>-13.48</amount>
+        <date>08/18/14</date>
+      </Expense>
+      <Expense>
+        <description>GULF OIL 91190990</description>
+        <amount>-2.89</amount>
+        <date>08/15/14</date>
+      </Expense>
+      <Expense>
+        <description>GULF OIL 91190990</description>
+        <amount>-2.13</amount>
+        <date>08/14/14</date>
       </Expense>
       <Expense>
         <description>FRIENDLY</description>
@@ -163,6 +283,11 @@
         <date>08/12/14</date>
       </Expense>
       <Expense>
+        <description>PORT CHESTER VALERO</description>
+        <amount>-2.00</amount>
+        <date>08/11/14</date>
+      </Expense>
+      <Expense>
         <description>SHELL SERVICE STATION</description>
         <amount>-4.24</amount>
         <date>08/11/14</date>
@@ -176,6 +301,21 @@
         <description>CUMBERLAND FARMS 0685</description>
         <amount>-7.90</amount>
         <date>08/11/14</date>
+      </Expense>
+      <Expense>
+        <description>KRAUSZERS FOOD STORE</description>
+        <amount>-8.51</amount>
+        <date>08/11/14</date>
+      </Expense>
+      <Expense>
+        <description>GULF OIL 91190990</description>
+        <amount>-2.65</amount>
+        <date>8/7/2014</date>
+      </Expense>
+      <Expense>
+        <description>KRAUSZERS FOOD STORE</description>
+        <amount>-19.21</amount>
+        <date>8/7/2014</date>
       </Expense>
       <Expense>
         <description>GULF OIL 91190990</description>
@@ -223,8 +363,18 @@
         <date>7/28/2014</date>
       </Expense>
       <Expense>
+        <description>BAAR TRADERS</description>
+        <amount>-7.76</amount>
+        <date>7/28/2014</date>
+      </Expense>
+      <Expense>
         <description>GULF OIL 91190990</description>
         <amount>-5.02</amount>
+        <date>7/21/2014</date>
+      </Expense>
+      <Expense>
+        <description>RITE AID CORP</description>
+        <amount>-16.97</amount>
         <date>7/21/2014</date>
       </Expense>
       <Expense>
@@ -238,8 +388,18 @@
         <date>7/15/2014</date>
       </Expense>
       <Expense>
+        <description>WEST BROAD SERVICE CNTR</description>
+        <amount>-10</amount>
+        <date>7/14/2014</date>
+      </Expense>
+      <Expense>
         <description>GULF OIL 91190990</description>
         <amount>-2.86</amount>
+        <date>7/7/2014</date>
+      </Expense>
+      <Expense>
+        <description>CUMBERLAND FARMS 0693</description>
+        <amount>-16.62</amount>
         <date>7/7/2014</date>
       </Expense>
       <Expense>
@@ -253,6 +413,11 @@
         <date>6/30/2014</date>
       </Expense>
       <Expense>
+        <description>WALGREENS 88 YORK ST</description>
+        <amount>-4.33</amount>
+        <date>6/30/2014</date>
+      </Expense>
+      <Expense>
         <description>GULF OIL 91190990</description>
         <amount>-1.5</amount>
         <date>6/26/2014</date>
@@ -261,6 +426,11 @@
         <description>GULF OIL 91190990</description>
         <amount>-2.13</amount>
         <date>6/26/2014</date>
+      </Expense>
+      <Expense>
+        <description>EXXONMOBIL</description>
+        <amount>-3.7</amount>
+        <date>6/18/2014</date>
       </Expense>
       <Expense>
         <description>SHELL SERVICE STATION</description>
@@ -293,9 +463,9 @@
         <date>5/29/2014</date>
       </Expense>
       <Expense>
-        <description>MTA VENDING MACHINES</description>
-        <amount>-2.75</amount>
-        <date>5/19/2014</date>
+        <description>BROAD</description>
+        <amount>-1</amount>
+        <date>5/22/2014</date>
       </Expense>
       <Expense>
         <description>STAMFORD GAS LLC</description>
@@ -312,6 +482,11 @@
         <amount>null</amount>
         <date>1/1/1970</date>
       </Expense>
+	  <Expense>
+        <description>1643 POST RD</description>
+        <amount>-100</amount>
+        <date>6/25/2014</date>
+      </Expense>
     </Expenses>
   </entry>
   <entry>
@@ -322,21 +497,17 @@
         <amount>null</amount>
         <date>1/1/1970</date>
       </Expense>
-      <Expense>
-        <description>ZAP 6PM COM</description>
-        <amount>-19.46</amount>
-        <date>7/28/2014</date>
+	  <Expense>
+        <description>1625 RAILROAD AVENUE</description>
+        <amount>-82.00</amount>
+        <date>08/11/14</date>
       </Expense>
       <Expense>
         <description>ZAP 6PM COM</description>
         <amount>-17.01</amount>
         <date>6/26/2014</date>
       </Expense>
-      <Expense>
-        <description>1625 SUMMER STREET</description>
-        <amount>-40</amount>
-        <date>6/25/2014</date>
-      </Expense>
+	  
       <Expense>
         <description>DAYONE SKATESHOP</description>
         <amount>-12.76</amount>
@@ -352,6 +523,11 @@
         <amount>null</amount>
         <date>1/1/1970</date>
       </Expense>
+	  <Expense>
+        <description>1643 POST RD</description>
+        <amount>-100</amount>
+        <date>6/25/2014</date>
+      </Expense>
     </Expenses>
   </entry>
   <entry>
@@ -363,9 +539,14 @@
         <date>1/1/1970</date>
       </Expense>
       <Expense>
-        <description>GULF OIL 91190990</description>
-        <amount>-2.65</amount>
-        <date>8/7/2014</date>
+        <description>95 EXPRESS</description>
+        <amount>-19.35</amount>
+        <date>08/18/14</date>
+      </Expense>
+      <Expense>
+        <description>STAMFORD PETROLEUM</description>
+        <amount>-20.06</amount>
+        <date>08/14/14</date>
       </Expense>
       <Expense>
         <description>CUMBERLAND FARMS 0693</description>
@@ -403,19 +584,9 @@
         <date>7/15/2014</date>
       </Expense>
       <Expense>
-        <description>WEST BROAD SERVICE CNTR</description>
-        <amount>-10</amount>
-        <date>7/14/2014</date>
-      </Expense>
-      <Expense>
         <description>EXXONMOBIL</description>
         <amount>-20.53</amount>
         <date>7/9/2014</date>
-      </Expense>
-      <Expense>
-        <description>CUMBERLAND FARMS 0693</description>
-        <amount>-16.62</amount>
-        <date>7/7/2014</date>
       </Expense>
       <Expense>
         <description>SHELL OIL 57542948609</description>
@@ -438,9 +609,19 @@
         <date>1/1/1970</date>
       </Expense>
       <Expense>
+        <description>TRADER JOE S  529 QPS</description>
+        <amount>-81.39</amount>
+        <date>08/13/14</date>
+      </Expense>
+      <Expense>
         <description>SUPER STOP</description>
         <amount>-83.63</amount>
         <date>08/13/14</date>
+      </Expense>
+      <Expense>
+        <description>TAI JIANG</description>
+        <amount>-14.73</amount>
+        <date>08/12/14</date>
       </Expense>
       <Expense>
         <description>SUPER STOP</description>
@@ -453,19 +634,9 @@
         <date>7/30/2014</date>
       </Expense>
       <Expense>
-        <description>BAAR TRADERS</description>
-        <amount>-7.76</amount>
-        <date>7/28/2014</date>
-      </Expense>
-      <Expense>
         <description>TRADER JOE S  529 QPS</description>
         <amount>-82.39</amount>
         <date>7/28/2014</date>
-      </Expense>
-      <Expense>
-        <description>RITE AID CORP</description>
-        <amount>-16.97</amount>
-        <date>7/21/2014</date>
       </Expense>
       <Expense>
         <description>TARGET T1544</description>
@@ -493,11 +664,6 @@
         <date>7/7/2014</date>
       </Expense>
       <Expense>
-        <description>WALGREENS 88 YORK ST</description>
-        <amount>-4.33</amount>
-        <date>6/30/2014</date>
-      </Expense>
-      <Expense>
         <description>TRADER JOE S  529 QPS</description>
         <amount>-31.81</amount>
         <date>6/30/2014</date>
@@ -515,11 +681,6 @@
       <Expense>
         <description>RITE AID CORP</description>
         <amount>-45.34</amount>
-        <date>6/16/2014</date>
-      </Expense>
-      <Expense>
-        <description>RITE AID CORP</description>
-        <amount>-46.38</amount>
         <date>6/16/2014</date>
       </Expense>
       <Expense>
@@ -568,6 +729,11 @@
         <date>1/1/1970</date>
       </Expense>
       <Expense>
+        <description>NNT KMART 4091</description>
+        <amount>-37.07</amount>
+        <date>08/18/14</date>
+      </Expense>
+      <Expense>
         <description>HARLAND CLARKE   CHK ORDERS</description>
         <amount>-11.95</amount>
         <date>08/08/14</date>
@@ -583,9 +749,24 @@
         <date>8/5/2014</date>
       </Expense>
       <Expense>
+        <description>ZAP 6PM COM</description>
+        <amount>-19.46</amount>
+        <date>7/28/2014</date>
+      </Expense>
+      <Expense>
         <description>BEDBATH BEYOND  BEDBATH</description>
         <amount>-165.42</amount>
         <date>7/14/2014</date>
+      </Expense>
+      <Expense>
+        <description>PAYPAL  NOSTALGICSN NOS</description>
+        <amount>-204.78</amount>
+        <date>5/22/2014</date>
+      </Expense>
+      <Expense>
+        <description>CHECK # 1</description>
+        <amount>-125</amount>
+        <date>5/19/2014</date>
       </Expense>
     </Expenses>
   </entry>
@@ -603,31 +784,6 @@
         <date>8/7/2014</date>
       </Expense>
       <Expense>
-        <description>KRAUSZERS FOOD STORE</description>
-        <amount>-19.21</amount>
-        <date>8/7/2014</date>
-      </Expense>
-      <Expense>
-        <description>PORT CHESTER VALERO</description>
-        <amount>-2.00</amount>
-        <date>08/11/14</date>
-      </Expense>
-      <Expense>
-        <description>KRAUSZERS FOOD STORE</description>
-        <amount>-8.51</amount>
-        <date>08/11/14</date>
-      </Expense>
-      <Expense>
-        <description>1625 RAILROAD AVENUE</description>
-        <amount>-82.00</amount>
-        <date>08/11/14</date>
-      </Expense>
-      <Expense>
-        <description>DEBIT</description>
-        <amount>-80</amount>
-        <date>8/7/2014</date>
-      </Expense>
-      <Expense>
         <description>STAMFORD WORLD OF BEER</description>
         <amount>-8.84</amount>
         <date>8/4/2014</date>
@@ -635,11 +791,6 @@
       <Expense>
         <description>COTTO WINE BAR</description>
         <amount>-19.89</amount>
-        <date>8/4/2014</date>
-      </Expense>
-      <Expense>
-        <description>DEBIT</description>
-        <amount>-300</amount>
         <date>8/4/2014</date>
       </Expense>
       <Expense>
@@ -653,38 +804,13 @@
         <date>7/28/2014</date>
       </Expense>
       <Expense>
-        <description>PARK INC</description>
-        <amount>-5</amount>
-        <date>7/21/2014</date>
-      </Expense>
-      <Expense>
         <description>WAREHOUSE WINES</description>
         <amount>-43.45</amount>
         <date>7/21/2014</date>
       </Expense>
       <Expense>
-        <description>1625 SUMMER STREET</description>
-        <amount>-100</amount>
-        <date>7/21/2014</date>
-      </Expense>
-      <Expense>
-        <description>209 ATLANTIC ST</description>
-        <amount>-62</amount>
-        <date>7/17/2014</date>
-      </Expense>
-      <Expense>
-        <description>LAZ PARKING 540308</description>
-        <amount>-3</amount>
-        <date>7/14/2014</date>
-      </Expense>
-      <Expense>
         <description>BURGER BAR AND BISTRO</description>
         <amount>-22.34</amount>
-        <date>7/14/2014</date>
-      </Expense>
-      <Expense>
-        <description>1625 SUMMER STREET</description>
-        <amount>-100</amount>
         <date>7/14/2014</date>
       </Expense>
       <Expense>
@@ -693,44 +819,14 @@
         <date>7/11/2014</date>
       </Expense>
       <Expense>
-        <description>TASTE OF HIGH RIDGE</description>
-        <amount>-11.25</amount>
-        <date>7/10/2014</date>
-      </Expense>
-      <Expense>
-        <description>1625 SUMMER STREET</description>
-        <amount>-60</amount>
-        <date>7/7/2014</date>
-      </Expense>
-      <Expense>
-        <description>DEBIT</description>
-        <amount>-45</amount>
-        <date>7/1/2014</date>
-      </Expense>
-      <Expense>
         <description>SY8 SONO ALE HOUSE 961</description>
         <amount>-12.3</amount>
         <date>6/23/2014</date>
       </Expense>
       <Expense>
-        <description>243 WEST AVENUE</description>
-        <amount>-102.25</amount>
-        <date>6/16/2014</date>
-      </Expense>
-      <Expense>
-        <description>1643 POST RD</description>
-        <amount>-140</amount>
-        <date>6/16/2014</date>
-      </Expense>
-      <Expense>
         <description>NORWALK LIQUOR  LLC</description>
         <amount>-13.05</amount>
         <date>6/13/2014</date>
-      </Expense>
-      <Expense>
-        <description>1625 SUMMER STREET</description>
-        <amount>-40</amount>
-        <date>6/10/2014</date>
       </Expense>
       <Expense>
         <description>LANDMARK 9</description>
@@ -748,14 +844,9 @@
         <date>5/19/2014</date>
       </Expense>
       <Expense>
-        <description>939 HIGH RIDGE ROA</description>
-        <amount>-122</amount>
-        <date>5/16/2014</date>
-      </Expense>
-      <Expense>
-        <description>DEBIT</description>
-        <amount>-20</amount>
-        <date>5/9/2014</date>
+        <description>609 DEKALB AVENUE  US</description>
+        <amount>-63</amount>
+        <date>5/19/2014</date>
       </Expense>
     </Expenses>
   </entry>
@@ -768,19 +859,39 @@
         <date>1/1/1970</date>
       </Expense>
       <Expense>
+        <description>DEBIT</description>
+        <amount>-700</amount>
+        <date>8/4/2014</date>
+      </Expense>
+      <Expense>
+        <description>CHECK # 199866</description>
+        <amount>-640</amount>
+        <date>7/11/2014</date>
+      </Expense>
+      <Expense>
+        <description>CHECK # 1</description>
+        <amount>-640</amount>
+        <date>6/4/2014</date>
+      </Expense>
+      <Expense>
+        <description>CHECK # 1</description>
+        <amount>-640</amount>
+        <date>5/23/2014</date>
+      </Expense>
+    </Expenses>
+  </entry>
+  <entry>
+    <Category>Restaurant</Category>
+    <Expenses>
+      <Expense>
+        <description>Restaurant</description>
+        <amount>null</amount>
+        <date>1/1/1970</date>
+      </Expense>
+      <Expense>
         <description>VILLAGE BAGELS FAIRFIELD</description>
         <amount>-8.23</amount>
         <date>08/13/14</date>
-      </Expense>
-      <Expense>
-        <description>TRADER JOE S  529 QPS</description>
-        <amount>-81.39</amount>
-        <date>08/13/14</date>
-      </Expense>
-      <Expense>
-        <description>TAI JIANG</description>
-        <amount>-14.73</amount>
-        <date>08/12/14</date>
       </Expense>
       <Expense>
         <description>SENOR SALSA</description>
@@ -815,11 +926,6 @@
       <Expense>
         <description>VILLAGE BAGELS FAIRFIELD</description>
         <amount>-5.84</amount>
-        <date>8/4/2014</date>
-      </Expense>
-      <Expense>
-        <description>DEBIT</description>
-        <amount>-700</amount>
         <date>8/4/2014</date>
       </Expense>
       <Expense>
@@ -858,9 +964,9 @@
         <date>7/14/2014</date>
       </Expense>
       <Expense>
-        <description>CHECK # 199866</description>
-        <amount>-640</amount>
-        <date>7/11/2014</date>
+        <description>TASTE OF HIGH RIDGE</description>
+        <amount>-11.25</amount>
+        <date>7/10/2014</date>
       </Expense>
       <Expense>
         <description>BURGER KING  2273</description>
@@ -903,18 +1009,8 @@
         <date>6/5/2014</date>
       </Expense>
       <Expense>
-        <description>CHECK # 1</description>
-        <amount>-640</amount>
-        <date>6/4/2014</date>
-      </Expense>
-      <Expense>
         <description>BURGER KING  2273</description>
         <amount>-2.01</amount>
-        <date>5/27/2014</date>
-      </Expense>
-      <Expense>
-        <description>SUBWAY</description>
-        <amount>-3.99</amount>
         <date>5/27/2014</date>
       </Expense>
       <Expense>
@@ -922,14 +1018,14 @@
         <amount>-8.5</amount>
         <date>5/27/2014</date>
       </Expense>
+	  <Expense>
+        <description>SUBWAY</description>
+        <amount>-3.99</amount>
+        <date>5/27/2014</date>
+      </Expense>
       <Expense>
         <description>VILLAGE BAGELS FAIRFIELD</description>
         <amount>-3.72</amount>
-        <date>5/23/2014</date>
-      </Expense>
-      <Expense>
-        <description>CHECK # 1</description>
-        <amount>-640</amount>
         <date>5/23/2014</date>
       </Expense>
       <Expense>
@@ -963,29 +1059,9 @@
         <date>5/19/2014</date>
       </Expense>
       <Expense>
-        <description>609 DEKALB AVENUE  US</description>
-        <amount>-63</amount>
-        <date>5/19/2014</date>
-      </Expense>
-      <Expense>
         <description>DUNKIN  336890</description>
         <amount>-3.39</amount>
         <date>5/8/2014</date>
-      </Expense>
-    </Expenses>
-  </entry>
-  <entry>
-    <Category>Restaurant</Category>
-    <Expenses>
-      <Expense>
-        <description>Restaurant</description>
-        <amount>null</amount>
-        <date>1/1/1970</date>
-      </Expense>
-      <Expense>
-        <description>VILLAGE BAGELS FAIRFIELD</description>
-        <amount>-5.84</amount>
-        <date>8/7/2014</date>
       </Expense>
     </Expenses>
   </entry>
@@ -996,31 +1072,6 @@
         <description>Savings</description>
         <amount>null</amount>
         <date>1/1/1970</date>
-      </Expense>
-      <Expense>
-        <description>Online Xfer Transfer to SV 00004789062224</description>
-        <amount>-450.00</amount>
-        <date>08/08/14</date>
-      </Expense>
-      <Expense>
-        <description>ST TRF TRANSFER TO SAVINGS ACCT     9400400000000004789062224</description>
-        <amount>-25</amount>
-        <date>7/22/2014</date>
-      </Expense>
-      <Expense>
-        <description>Online Xfer Transfer to SV 00004789062224</description>
-        <amount>-50</amount>
-        <date>7/8/2014</date>
-      </Expense>
-      <Expense>
-        <description>ST TRF TRANSFER TO SAVINGS ACCT     9400400000000004789062224</description>
-        <amount>-25</amount>
-        <date>6/20/2014</date>
-      </Expense>
-      <Expense>
-        <description>ST TRF TRANSFER TO SAVINGS ACCT     9400400000000004789062224</description>
-        <amount>-25</amount>
-        <date>5/22/2014</date>
       </Expense>
     </Expenses>
   </entry>
@@ -1033,19 +1084,29 @@
         <date>1/1/1970</date>
       </Expense>
       <Expense>
+        <description>NST METRO NORTH TVM830</description>
+        <amount>-10.75</amount>
+        <date>08/21/14</date>
+      </Expense>
+      <Expense>
         <description>NST METRO NORTH TVM460</description>
         <amount>-2.50</amount>
         <date>08/12/14</date>
       </Expense>
       <Expense>
-        <description>CHECK # 31</description>
-        <amount>-100.00</amount>
-        <date>08/11/14</date>
-      </Expense>
-      <Expense>
         <description>PROGRESSIVE  INSURANCE</description>
         <amount>-167</amount>
         <date>7/31/2014</date>
+      </Expense>
+      <Expense>
+        <description>PARK INC</description>
+        <amount>-5</amount>
+        <date>7/21/2014</date>
+      </Expense>
+      <Expense>
+        <description>LAZ PARKING 540308</description>
+        <amount>-3</amount>
+        <date>7/14/2014</date>
       </Expense>
       <Expense>
         <description>GEICO</description>
@@ -1073,11 +1134,6 @@
         <date>6/23/2014</date>
       </Expense>
       <Expense>
-        <description>939 HIGH RIDGE ROA</description>
-        <amount>-122</amount>
-        <date>6/16/2014</date>
-      </Expense>
-      <Expense>
         <description>CT TRANSIT STAMFORD KI</description>
         <amount>-13.5</amount>
         <date>6/2/2014</date>
@@ -1091,6 +1147,11 @@
         <description>CT TRANSIT STAMFORD KI</description>
         <amount>-13.5</amount>
         <date>5/21/2014</date>
+      </Expense>
+      <Expense>
+        <description>MTA VENDING MACHINES</description>
+        <amount>-2.75</amount>
+        <date>5/19/2014</date>
       </Expense>
       <Expense>
         <description>MTA VENDING MACHINES</description>

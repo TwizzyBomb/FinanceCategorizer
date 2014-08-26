@@ -70,3 +70,37 @@ output: Set values: [Groceries=BEDBATH BEYOND BEDBATH, PARTYING=WAREHOUSE WINES 
                         String ctgry = br.readLine();
                         addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
                         System.out.println(" Accepted Input! ");
+
+
+        
+        
+        BufferedReader br2 = new BufferedReader(new FileReader("Categories.xml"));
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = br2.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br2.readLine();
+            }
+            xmlFile = sb.toString();
+        }catch(FileNotFoundException e){
+            System.out.println("Cannot find Categories.xml (error produced from filereader)");
+        }finally {
+            br2.close();
+        }
+        System.out.println(xmlFile);
+        TreeMap<String, ArrayList<Expense>> xmlAllDataMap = (TreeMap<String,ArrayList<Expense>>)xstream.fromXML(xmlFile);
+        /*
+        try{
+        xmlAllDataMap = (TreeMap<String,ArrayList<Expense>>)xstream.fromXML(xmlFile);
+        }catch(Exception ex){
+            System.out.println("Cannot find Categories.xml (error produced from xmlStream object creation)");
+        }
+        */
+
+
+if(xmlAllDataMap.size() > 0 ){
+        Categories = xmlAllDataMap;
+        }else{

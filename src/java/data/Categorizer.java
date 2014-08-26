@@ -155,6 +155,7 @@ public class Categorizer {
     private static String cmprDate;
     
     private static TreeMap<String, ArrayList<Expense>> Categories = new TreeMap<String, ArrayList<Expense>>();
+    //private static TreeMap<String, ArrayList<Expense>> xmlAllDataMap;
     //For Printing Purposes
     private static String[] categoryStrings = {"Asset", "BankFees", "Bills", "Cash", "Convenience",
         "Dates", "Exersize", "Fines", "Gas", "Groceries", "Misc", "Partying", "Rent", "Restaurant", "Savings", "Transportation" };
@@ -267,8 +268,39 @@ public class Categorizer {
     
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //If I wanted to print out the full string for each entry I could return full description and do the strippng in sorter
+    //private static String xmlFile;
     public static void main(String[] args) throws IOException, ParseException{
+        XStream xstream = new XStream();
+        
+        xstream.alias("Expense", Expense.class);
+        xstream.alias("Category", String.class);
+        xstream.alias("Expenses", List.class);
+        
+        //READ FROM XML FILE, TO MAP OF ARRAY LISTS
+        String everything;
+
+        BufferedReader br2 = new BufferedReader(new FileReader("Categories.xml"));
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = br2.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br2.readLine();
+            }
+            everything = sb.toString();
+        } finally {
+            br2.close();
+        }
+        
+        TreeMap<String, ArrayList<Expense>> xmlAllDataMap = (TreeMap<String,ArrayList<Expense>>)xstream.fromXML(everything);
+        
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        if(xmlAllDataMap!=null){
+            Categories = xmlAllDataMap;
+        }else{
         //Maps remove duplicates!! you had two entries for bills and it reported the size as only the individuals
         Categories.put("Partying", Partying);
         Categories.put("Rent", Rent);
@@ -302,7 +334,7 @@ public class Categorizer {
         Fines.add( new Expense("Fines", "null", "1/1/1970")); 
         Asset.add( new Expense("Asset", "null", "1/1/1970"));
         Convenience.add( new Expense("Convenience", "null" , "1/1/1970"));
-        
+        }
         //I ACTUALLY HAVE TO MAKE A CONSTRUCTOR FOR A FUNCTION WITHIN THIS CLASS BECAUSE RECENT SPENDING ISN'T STATIC
         //Try catch because recent spending throws IO and FileNotFound exceptions
         try{
@@ -313,7 +345,7 @@ public class Categorizer {
         System.out.println(arr);
         
         
-        //THIS IS WHERE I PLUG IN THE VALUES OF SortedArrayList FROM SORTER
+        //THIS IS WHERE I PLUG IN THE VALUES OF SortedArrayList FROM SORTER and CREATE THE ARRAY LIST FROM CSV FILE FOR COMPARISON
         int length = arr.size();
         for(int i=0;i<length;i++){
             String description = arr.get(i).getDescription();//calls each objects getDescription()
@@ -373,7 +405,6 @@ public class Categorizer {
                             }else if(!expense.equals(expense2)){
                                 System.out.println("Not a match");
                             }
-                    //IN THE FINAL VERSION YOU NEED TO RELOAD THE WHOLE LIST AFTER ANYTHING GETS ADDED TO AVOID DUPLICATES
                     }//End of Inner INDIVIDUAL Category Loop
                     if(foundMatch==true){//MATCH FOUND, ADD TO PROPER CATEGORY or ASK USER WHAT TO DO
                         if(expense2.equals(cmprExpense) && amount2.equals(cmprAmount) && date2.equals(cmprDate)){
@@ -384,6 +415,7 @@ public class Categorizer {
                         }
                         //One of the three comparisions returned false, add to category
                         else{//Get user input here...
+                        //SHOULD ADD TO CURRENT CATEGORY
                         System.out.println("  !! Match Found !! " + expense2 + " in Category: " + categoryStrings[j]);
                         System.out.println(" In DB " + cmprExpense + " with amount " + cmprAmount + " at date: " + cmprDate);
                         System.out.println(" Add   " + expense2 + " with amount " + amount2 + " at date " + date2 +" to a Category?");
@@ -447,10 +479,10 @@ public class Categorizer {
                 }//End of foundMatch=false conditional
             }//End of Outer Category Loop
         //System.out.println(Categories.get(2).get(2).getDescription());
-        XStream xstream = new XStream();
-        xstream.alias("Expense", Expense.class);
-        xstream.alias("Category", String.class);
-        xstream.alias("Expenses", List.class);
+        //XStream xstream = new XStream();
+        //xstream.alias("Expense", Expense.class);
+        //xstream.alias("Category", String.class);
+        //xstream.alias("Expenses", List.class);
         
         //CREATE XML STRING
         String xml = xstream.toXML(Categories);
@@ -468,12 +500,8 @@ public class Categorizer {
         }
         
         //READ FROM XML FILE, TO MAP OF ARRAY LISTS
-        String everything;
-        
-        //THIS WAS USING xml STRING WHICH WAS FRESH IN JAVA AS AN ARRAY LIST XML
-        //ArrayList<ArrayList<Expense>> cats = (ArrayList<ArrayList<Expense>>)xstream.fromXML(xml);
-        //System.out.println(cats.get(2).get(2).getDescription());//IT WORKS! I can get the info back from the xml
-        //Now I just have to make it into a file and load up the file at the begining
+        /*String everything;
+
         BufferedReader br2 = new BufferedReader(new FileReader("Categories.xml"));
         try {
             StringBuilder sb = new StringBuilder();
@@ -488,9 +516,11 @@ public class Categorizer {
         } finally {
             br2.close();
         }
+        */
+        //THIS WAS USING xml STRING WHICH WAS FRESH IN JAVA AS AN ARRAY LIST XML
         //@@gets xml data from file, after first run move this to top of the main function and call the get amount from all
-        //ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
-        TreeMap<String, ArrayList<Expense>> xmlAllDataMap = (TreeMap<String,ArrayList<Expense>>)xstream.fromXML(everything);
+        ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
+        //TreeMap<String, ArrayList<Expense>> xmlAllDataMap = (TreeMap<String,ArrayList<Expense>>)xstream.fromXML(everything);
         //Gets the Arraylist Back from the XML File, now iterate to print Amounts for each?
         for(int m = 0; m<categoryStrings.length; m++){
             System.out.println("Category = " + categoryStrings[m]);
