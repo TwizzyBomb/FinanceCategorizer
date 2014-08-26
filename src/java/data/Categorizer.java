@@ -126,7 +126,7 @@ public class Categorizer {
     
     //CATEGORY ARRAY LISTS
     private static ArrayList<Expense> SortedArrayList = new ArrayList<Expense>();
-    public static ArrayList<Expense> Partying = new ArrayList<Expense>();
+    private static ArrayList<Expense> Partying = new ArrayList<Expense>();
     private static ArrayList<Expense> Rent = new ArrayList<Expense>();
     private static ArrayList<Expense> Restaurant = new ArrayList<Expense>();
     private static ArrayList<Expense> Gas = new ArrayList<Expense>();
@@ -156,79 +156,113 @@ public class Categorizer {
     
     private static TreeMap<String, ArrayList<Expense>> Categories = new TreeMap<String, ArrayList<Expense>>();
     //For Printing Purposes
-    private static String[] categoryStrings = {"Partying", "Rent", "Restaurant", "Gas", "BankFees",
-        "Groceries", "Cash", "Bills", "Misc", "Exersize", "Transportation", "Savings", "Dates", "Fines", "Asset", "Convenience" };
+    private static String[] categoryStrings = {"Asset", "BankFees", "Bills", "Cash", "Convenience",
+        "Dates", "Exersize", "Fines", "Gas", "Groceries", "Misc", "Partying", "Rent", "Restaurant", "Savings", "Transportation" };
     
     
-    private static void addToCorrectCategory(String category, Expense expense){
-        //Switch Statement that sorts the object into the correct category
+    private static int addToCorrectCategory(String category, Expense expense){
+        //Switch StatemeAssetnt that sorts the object into the correct category
         switch (category) {
+            case "Asset":
+            case "asset":
+            case "1":
+                System.out.println("Accepted Input, Asset Added");
+                Asset.add(expense);
+                break;
+            case "BankFees":
+            case "bankfees":
+            case "2":
+                System.out.println("Accepted Input, Bank Fee Expense Added"); 
+                BankFees.add(expense);
+                break;
+            case "Bills":
+            case "bills":
+            case "3":
+                System.out.println("Accepted Input, Bills Expense Added");
+                Bills.add(expense);
+                break;
+            case "Cash":
+            case "cash":
+            case "4":
+                System.out.println("Accepted Input, Cash Expense Added");
+                Cash.add(expense);
+                break;
+            case "Convenience":
+            case "convenience":
+            case "5":
+                System.out.println("Accepted Input, Convenience Expense Added");
+                Convenience.add(expense);
+                break;
+            case "Dates":
+            case "dates":
+            case "6":
+                System.out.println("Accepted Input, Dates Expense Added");
+                Dates.add(expense);
+                break;
+            case "Exersize":
+            case "exersize":
+            case "7":
+                System.out.println("Accepted Input, Exersize Expense Added");
+                Exersize.add(expense);
+                break;
+            case "Fines":
+            case "fines":
+            case "8":
+                System.out.println("Accepted Input, Fines Expense Added");
+                Fines.add(expense);
+                break;
+            case "Gas":
+            case "gas":
+            case "9":
+                System.out.println("Accepted Input, Gas Expense Added");
+                Gas.add(expense);
+                break;
+            case "Groceries":
+            case "groceries":
+            case "10":
+                System.out.println("Accepted Input, Groceries Expense Added");
+                Groceries.add(expense);
+                break;
+            case "Misc":
+            case "misc":
+            case "11":
+                System.out.println("Accepted Input, Misc Expense Added");
+                Misc.add(expense);
+                break;
             case "Partying":
+            case "partying":
+            case "12":
                 System.out.println("Accepted Input, Partying Expense Added");
                 Partying.add(expense);
                 break;
             case "Rent":
+            case "rent":
+            case "13":
                 System.out.println("Accepted Input, Rent Expense Added");
                 Rent.add(expense);
                 break;
             case "Restaurant":
+            case "restaurant":
+            case "14":
                 System.out.println("Accepted Input, Restaurant Expense Added");
                 Restaurant.add(expense);
                 break;
-            case "Gas":
-                System.out.println("Accepted Input, Gas Expense Added");
-                Gas.add(expense);
-                break;
-            case "BankFees":
-                System.out.println("Accepted Input, Bank Fees Asset Added");
-                BankFees.add(expense);
-                break;
-            case "Groceries":
-                System.out.println("Accepted Input, Groceries Expense Added");
-                Groceries.add(expense);
-                break;
-            case "Cash":
-                System.out.println("Accepted Input, Cash Expense Added");
-                Cash.add(expense);
-                break;
-            case "Bills":
-                System.out.println("Accepted Input, Expense Added");
-                Bills.add(expense);
-                break;
-            case "Misc":
-                System.out.println("Accepted Input, Misc Expense Added");
-                Misc.add(expense);
-                break;
-            case "Exersize":
-                System.out.println("Accepted Input, Exersize Expense Added");
-                Exersize.add(expense);
-                break;
-            case "Transportation":
-                System.out.println("Accepted Input, Transportation Expense Added");
-                Transportation.add(expense);
-                break;
             case "Savings":
-                System.out.println("Accepted Input, Good Job! Keep Saving!");
+            case "savings":
+            case "15":
+                System.out.println("Accepted Input, Savings Expense Added");
                 Savings.add(expense);
                 break;
-            case "Dates":
-                System.out.println("Accepted Input, I hope your date went well!");
-                Dates.add(expense);
-                break;
-            case "Fines":
-                System.out.println("Accepted Input, Fine Added. You've been a bad boy!");
-                Fines.add(expense);
-                break;
-            case "Asset":
-                System.out.println("Accepted Input, Asset Added");
-                Asset.add(expense);
-                break;
-            case "Convenience":
-                System.out.println("Accepted Input, Asset Added");
-                Convenience.add(expense);
+            case "Transportation":
+            case "transportation":
+            case "16":
+                System.out.println("Accepted Input, Transportation Expense Added");
+                Transportation.add(expense);
                 break;  
             default: System.out.println("Not A valid Entry, Nothing added");
+            return 0;
         }
+        return 1;
     }
     
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -253,15 +287,10 @@ public class Categorizer {
         Categories.put("Asset", Asset);
         Categories.put("Convenience", Convenience);
         Partying.add( new Expense("Partying", "null", "1/1/1970"));
-        Partying.add( new Expense("THE FIELD", "-16", "8/7/2014"));
-        Partying.add( new Expense("KRAUSZERS FOOD STORE", "-19.21", "8/7/2014"));
         Rent.add( new Expense("Rent", "null", "1/1/1970"));
         Restaurant.add( new Expense("Restaurant", "null", "1/1/1970"));
-        Restaurant.add( new Expense("VILLAGE BAGELS FAIRFIELD", "-5.84", "8/7/2014"));
         Gas.add( new Expense("Gas", "null", "1/1/1970"));
-        Gas.add( new Expense("GULF OIL 91190990", "-2.65", "8/7/2014"));//SHOW AMOUNTS WITH THE QUESTIONS BECAUSE EVERYMORNINGS BREAKFAST SHOULD COUNT AS GROCERIES
         BankFees.add( new Expense("Bank Fees", "null", "1/1/1970"));
-        BankFees.add( new Expense("MAINTENANCE FEE", "-15", "8/7/2014"));
         Groceries.add( new Expense("Groceries", "null", "1/1/1970"));
         Cash.add( new Expense("Cash", "null", "1/1/1970"));
         Bills.add( new Expense("Bills", "null", "1/1/1970"));
@@ -273,7 +302,6 @@ public class Categorizer {
         Fines.add( new Expense("Fines", "null", "1/1/1970")); 
         Asset.add( new Expense("Asset", "null", "1/1/1970"));
         Convenience.add( new Expense("Convenience", "null" , "1/1/1970"));
-        Convenience.add( new Expense("FRIENDLY", "-4.58" , "08/13/14"));
         
         //I ACTUALLY HAVE TO MAKE A CONSTRUCTOR FOR A FUNCTION WITHIN THIS CLASS BECAUSE RECENT SPENDING ISN'T STATIC
         //Try catch because recent spending throws IO and FileNotFound exceptions
@@ -368,11 +396,14 @@ public class Categorizer {
                                 //Put in category
                                 System.out.println(" Add to the correct category from the List: ");
                                 for(int l=0;l<categoryStrings.length;l++){
-                                    System.out.println(categoryStrings[l]);
+                                    System.out.println(categoryStrings[l] + " " + (l+1) );
                                 }
                                 String ctgry = br.readLine();
-                                addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
-                                System.out.println(" Accepted Input! ");
+                                if(addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/)==1){
+                                System.out.println("  Accepted Input!!!");
+                                }else{
+                                    System.out.println(expense2 + " with amount " + amount2 + " at date " + date2 + "Not Added!!");
+                                }
                                 //Attempts to break out of Current CSV record loop since match was found and dealt with
                                 break;
                             }else if(YNinput.equals("n") || YNinput.equals("N")){
@@ -399,11 +430,14 @@ public class Categorizer {
                             //Put in category
                             System.out.println(" Add to the correct category from the List: ");
                             for(int l=0;l<categoryStrings.length;l++){
-                                System.out.println(categoryStrings[l]);
+                                System.out.println(" " + categoryStrings[l] + " " + (l+1) );
                             }
                             String ctgry = br.readLine();
-                            addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/);
-                            System.out.println(" Accepted Input! ");
+                            if(addToCorrectCategory(ctgry, SortedArrayList.get(i)/*expense object from sorter*/)==1){
+                            System.out.println("  Accepted Input!!!");
+                            }else{
+                                    System.out.println(expense2 + " with amount " + amount2 + " at date " + date2 + "Not Added!!");
+                            }
 
                         }else if(YNinput.equals("n") || YNinput.equals("N")){
                             System.out.println("not added");
@@ -454,6 +488,7 @@ public class Categorizer {
         } finally {
             br2.close();
         }
+        //@@gets xml data from file, after first run move this to top of the main function and call the get amount from all
         //ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
         TreeMap<String, ArrayList<Expense>> xmlAllDataMap = (TreeMap<String,ArrayList<Expense>>)xstream.fromXML(everything);
         //Gets the Arraylist Back from the XML File, now iterate to print Amounts for each?
