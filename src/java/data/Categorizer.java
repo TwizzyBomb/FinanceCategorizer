@@ -550,7 +550,7 @@ csvLoop:for(int i=1;i<SortedArrayList.size();i++){
         for(int o = 0; o < totalList.size(); o++){
             catTotList.put(categoryStrings[o], totalList.get(o));
             System.out.println("Category " + categoryStrings[o] + ", Total: " + (-1)*(Math.floor(totalList.get(o) * 1000) / 1000));
-            System.out.println("Percent of Income: %" + (Math.floor(totalList.get(o)/-totalList.get(0) * 1000) / 1000)*100);
+            System.out.println("Percent of Income: %" + (Math.floor(totalList.get(o)/-totalList.get(0) * 1000) / 1000)* 100);
             System.out.println(" ");
         }
         //System.out.println(catTotList);
