@@ -482,7 +482,7 @@
         <amount>null</amount>
         <date>1/1/1970</date>
       </Expense>
-	  <Expense>
+      <Expense>
         <description>1643 POST RD</description>
         <amount>-100</amount>
         <date>6/25/2014</date>
@@ -497,7 +497,7 @@
         <amount>null</amount>
         <date>1/1/1970</date>
       </Expense>
-	  <Expense>
+      <Expense>
         <description>1625 RAILROAD AVENUE</description>
         <amount>-82.00</amount>
         <date>08/11/14</date>
@@ -507,7 +507,6 @@
         <amount>-17.01</amount>
         <date>6/26/2014</date>
       </Expense>
-	  
       <Expense>
         <description>DAYONE SKATESHOP</description>
         <amount>-12.76</amount>
@@ -523,7 +522,7 @@
         <amount>null</amount>
         <date>1/1/1970</date>
       </Expense>
-	  <Expense>
+      <Expense>
         <description>1643 POST RD</description>
         <amount>-100</amount>
         <date>6/25/2014</date>
@@ -1018,7 +1017,7 @@
         <amount>-8.5</amount>
         <date>5/27/2014</date>
       </Expense>
-	  <Expense>
+      <Expense>
         <description>SUBWAY</description>
         <amount>-3.99</amount>
         <date>5/27/2014</date>

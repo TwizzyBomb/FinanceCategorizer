@@ -144,6 +144,7 @@ public class Categorizer {
     private static ArrayList<Expense> Convenience = new ArrayList<Expense>();
     //for matching
     private static boolean foundMatch =false;
+    private static boolean foundPerfectMatch =false;
     private static String expense;
     private static String expense2;
     private static String date;
@@ -369,14 +370,14 @@ public class Categorizer {
         System.out.println("Line Numbers from CSV file = " + lineNumber );
         //System.out.println(SortedArrayList.get(10).getAmount());
         System.out.println("The Map Categories.size() = " + allCategoriesSize );//Need to figure out how many iterations to loop categories AND
-        for(int i=1;i<SortedArrayList.size();i++){
+csvLoop:for(int i=1;i<SortedArrayList.size();i++){
             System.out.println("At start of new entry, foundMatch = " + foundMatch);
             //Looping through Categories Array
-            for(int j=0;j<allCategoriesSize;j++){
+ allCatLoop:for(int j=0;j<allCategoriesSize;j++){
                 foundMatch = false;
                 int currCatSiz = Categories.get(categoryStrings[j]).size();
                 System.out.println(j + " Current Category: " + categoryStrings[j] + ", length = " + currCatSiz );
-                for(int k=0;k<currCatSiz;k++){//Looping through individual expense categories (partying, groceries, etc)
+        catLoop:for(int k=0;k<currCatSiz;k++){//Looping through individual expense categories (partying, groceries, etc)
                             //trying to get the current category to display
                             //System.out.println("Current Category = " + Categories.floorKey(categoryStrings[i]) );
                             //System.out.println("current record from within category = " + k);
@@ -395,6 +396,13 @@ public class Categorizer {
                         
                         //MATCH FOUND, IS IN CATEGORY?
                             if(expense.equals(expense2)){
+                                if(expense2.equals(expense) && amount2.equals(amount) && date2.equals(date)){
+                                    foundPerfectMatch=true;
+                                    //ALREADY EXISTS IN CURRENT LIST OF EXPENSES, BREAK LOOP AND MOVE ON
+                                    //(not necessarily, I buy 2 tacitos for 2.13 from gulf oil all the time)
+                                    System.out.println("ALREADY EXISTS IN CURRENT LIST OF EXPENSES, BREAKING LOOP AND MOVING ON");
+                                    break allCatLoop;
+                                }else{
                                 System.out.println("  !! Found !! " + expense + " At Index " + j + ")");
                                 foundMatch = true;
                                 System.out.println("foundMatch = " + foundMatch);
@@ -402,19 +410,16 @@ public class Categorizer {
                                 cmprAmount = amount;
                                 cmprDate = date;
                                 break;
+                                }
                             }else if(!expense.equals(expense2)){
                                 System.out.println("Not a match");
                             }
                     }//End of Inner INDIVIDUAL Category Loop
+                    if(foundPerfectMatch==true){break;}
                     if(foundMatch==true){//MATCH FOUND, ADD TO PROPER CATEGORY or ASK USER WHAT TO DO
-                        if(expense2.equals(cmprExpense) && amount2.equals(cmprAmount) && date2.equals(cmprDate)){
-                        //ALREADY EXISTS IN CURRENT LIST OF EXPENSES, BREAK LOOP AND MOVE ON
-                            //(not necessarily, I buy 2 tacitos for 2.13 from gulf oil all the time)
-                        System.out.println("ALREADY EXISTS IN CURRENT LIST OF EXPENSES, BREAKING LOOP AND MOVING ON");
-                        break;
-                        }
+                        
                         //One of the three comparisions returned false, add to category
-                        else{//Get user input here...
+                        //else{//Get user input here...
                         //SHOULD ADD TO CURRENT CATEGORY
                         System.out.println("  !! Match Found !! " + expense2 + " in Category: " + categoryStrings[j]);
                         System.out.println(" In DB " + cmprExpense + " with amount " + cmprAmount + " at date: " + cmprDate);
@@ -447,10 +452,10 @@ public class Categorizer {
                                 //Attempts to break out of Current CSV record loop since match was found and dealt with
                                 break;
                             }
-                        }
+                        
                     }
                 }   //Iterated through all categories' entries
-                if(foundMatch==false){//NO MATCH FOUND, ASK USER TO ADD TO CATEGORY
+                if(foundMatch==false && foundPerfectMatch==false){//NO MATCH FOUND, ASK USER TO ADD TO CATEGORY
                     System.out.println(" Entry " + expense2 + " is not in any categories,");
                     System.out.println(" Add " + expense2 + " with amount " + amount2 + " at date " + date2 + " to a Category?");
                     System.out.println(" Y/N");
@@ -519,9 +524,10 @@ public class Categorizer {
         */
         //THIS WAS USING xml STRING WHICH WAS FRESH IN JAVA AS AN ARRAY LIST XML
         //@@gets xml data from file, after first run move this to top of the main function and call the get amount from all
-        ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
+        //ArrayList<ArrayList<Expense>> cats2 = (ArrayList<ArrayList<Expense>>)xstream.fromXML(everything);
         //TreeMap<String, ArrayList<Expense>> xmlAllDataMap = (TreeMap<String,ArrayList<Expense>>)xstream.fromXML(everything);
         //Gets the Arraylist Back from the XML File, now iterate to print Amounts for each?
+        ArrayList<Double> totalList = new ArrayList<Double>();
         for(int m = 0; m<categoryStrings.length; m++){
             System.out.println("Category = " + categoryStrings[m]);
             double total = 0.0;
@@ -531,12 +537,23 @@ public class Categorizer {
                 if(!amt.equals("null")){
                     double amtValue = Double.parseDouble(amt);
                     System.out.println("  Description " + (m+n) + " " + dsc);
-                    System.out.println("  Amount " + (m+n) + " " + amtValue);
+                    System.out.println("  Amount " + (m+n) + " " + amtValue);                   
                     total+=amtValue;
+                    
                 }
             }
+            totalList.add(total);
             System.out.println(total);
         }
+        TreeMap<String, Double> catTotList = new TreeMap<String, Double>();
+        //print all totals
+        for(int o = 0; o < totalList.size(); o++){
+            catTotList.put(categoryStrings[o], totalList.get(o));
+            System.out.println("Category " + categoryStrings[o] + ", Total: " + (-1)*(Math.floor(totalList.get(o) * 1000) / 1000));
+            System.out.println("Percent of Income: %" + (Math.floor(totalList.get(o)/-totalList.get(0) * 1000) / 1000)*100);
+            System.out.println(" ");
+        }
+        //System.out.println(catTotList);
     }//End of Main
 
 }
